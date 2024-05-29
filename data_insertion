@@ -1,0 +1,12 @@
+#!/bin/bash -x
+DB_USER='CTL';
+DB_PASSWD='systemctl';
+
+DB_NAME='sae23';
+TABLE='Mesure';
+
+data='800';
+
+/opt/lampp/bin/mysql --user=$DB_USER --password=$DB_PASSWD $DB_NAME << EOF
+INSERT INTO $TABLE (Nom_capt, valeur) VALUES ("TEST", "$data");
+EOF
