@@ -39,7 +39,7 @@
 			<?php
 				include ("connexion_sql.php");
 				METHODE POST POUR PRENDRE LE GESTIONNAIRE QUI CORRESPOND À TELLE OU TELLE PERSONNE
-				$requete = "SELECT * FROM `		COMPLÉTER QUAND J'AURAI LA BASE DE DONNÉES
+				$requete = "SELECT * FROM `		COMPLÉTER QUAND J'AURAI LA BASE DE DONNÉES"
 				$resultat = mysqli_query($id_bd, $requete)
 					or die ("Execution de la requête impossible : $requete");
 				mysqli_close($id_bd);
