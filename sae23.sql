@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mer 29 Mai 2024 à 15:42
+-- Généré le :  Mar 04 Juin 2024 à 15:48
 -- Version du serveur :  5.6.20
 -- Version de PHP :  5.5.15
 
@@ -72,6 +72,16 @@ CREATE TABLE IF NOT EXISTS `Capteur` (
   `Nom_salle` varchar(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Contenu de la table `Capteur`
+--
+
+INSERT INTO `Capteur` (`Nom_capt`, `Type`, `Unite`, `Nom_salle`) VALUES
+('AM107-13', 'CO2', 'ppm', 'E105'),
+('AM107-26', 'CO2', 'ppm', 'E003'),
+('AM107-35', 'CO2', 'ppm', 'E105'),
+('AM107-8', 'CO2', 'ppm', 'B002');
+
 -- --------------------------------------------------------
 
 --
@@ -84,7 +94,23 @@ CREATE TABLE IF NOT EXISTS `Mesure` (
   `horaire` time NOT NULL,
   `valeur` int(5) NOT NULL,
   `Nom_capt` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
+
+--
+-- Contenu de la table `Mesure`
+--
+
+INSERT INTO `Mesure` (`ID_mes`, `date`, `horaire`, `valeur`, `Nom_capt`) VALUES
+(8, '2024-06-04', '14:00:33', 578, 'AM107-35'),
+(9, '2024-06-04', '14:00:37', 2165, 'AM107-8'),
+(10, '2024-06-04', '14:10:36', 2024, 'AM107-8'),
+(11, '2024-06-04', '14:11:24', 830, 'AM107-13'),
+(12, '2024-06-04', '14:11:50', 442, 'AM107-26'),
+(13, '2024-06-04', '14:20:32', 603, 'AM107-35'),
+(14, '2024-06-04', '15:00:32', 487, 'AM107-35'),
+(15, '2024-06-04', '15:00:37', 2108, 'AM107-8'),
+(16, '2024-06-04', '15:01:24', 528, 'AM107-13'),
+(17, '2024-06-04', '15:01:50', 455, 'AM107-26');
 
 -- --------------------------------------------------------
 
@@ -98,6 +124,16 @@ CREATE TABLE IF NOT EXISTS `Salle` (
   `CapaciteAccueil` int(2) NOT NULL,
   `ID_bat` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Contenu de la table `Salle`
+--
+
+INSERT INTO `Salle` (`Nom_salle`, `Type`, `CapaciteAccueil`, `ID_bat`) VALUES
+('B002', 'TD', 34, 'B'),
+('B105', 'TP', 20, 'B'),
+('E003', 'TD', 30, 'E'),
+('E105', 'TP', 16, 'E');
 
 --
 -- Index pour les tables exportées
@@ -141,7 +177,7 @@ ALTER TABLE `Salle`
 -- AUTO_INCREMENT pour la table `Mesure`
 --
 ALTER TABLE `Mesure`
-MODIFY `ID_mes` int(10) NOT NULL AUTO_INCREMENT;
+MODIFY `ID_mes` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
 --
 -- Contraintes pour les tables exportées
 --
