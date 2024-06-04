@@ -1,7 +1,12 @@
+<?php
+	// Démarrage de la session
+	session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <title>SAE23 - Espace Administrateur</title>
+    <title>Identification erron&eacute;e</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />						<!-- Pour bien gérer le RWD -->
     <meta name="author" content="CTL" />
@@ -13,33 +18,27 @@
     <link rel="stylesheet" type="text/css" href="./styles/style.css" media="screen" />
 </head>
 
-<body>
+	<body>
+		<!-- Affichage entete -->
+		<?php 
+			$_SESSION = array(); // Réinitialisation du tableau de session
+			session_destroy();   // Destruction de la session
+			unset($_SESSION);    // Destruction du tableau de session
+		?>
+
 <section>
-	<p>
-	<br />
+<br />
+
 	<h1>Administration de la base : </h1>
 	<p><strong> /!\ Acc&egrave;s limit&eacute; aux personnes autoris&eacute;es /!\ </strong></p>
-	<br />
-	</p>
-	
-	<form action="login.php" method="post" enctype="multipart/form-data">
-		<fieldset>
-			<legend> Authentification au compte CTL : </legend>
-			<!-- <label for="login"> Nom d'utilisateur : </label>
-			<input type="text" name="login" id="login" /> -->
-			<label for="mdp"> Mot de passe : </label>
-			<input type="password" name="mdp" id="mdp" />
-		</fieldset>
-		<p>
-			<input type="submit" value="Valider" />
-		</p>
-	</form>
-	<hr />
-</section>
-	
-<footer>
-	<p><a href="index.html">Retour à la page d'accueil</a></p>
-</footer>
-
-</body>
+			<br />
+			<p class="erreur">Mot de passe non saisi ou erron&eacute; !!!</p>
+			<br />
+			<hr />
+		</section>
+		<footer>
+			<p><a href="catalogue.php">Retour au catalogue</a></p>
+			<p><a href="admin_formulaire.html">Retour à l'identification</a></p>
+		</footer>
+	</body>
 </html>
