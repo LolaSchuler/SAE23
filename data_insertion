@@ -1,12 +1,18 @@
-#!/bin/bash -x
+#!/bin/bash
+#script to upload data to the SQL database
+
+# Arguments :
+#valeur=$1
+#date=$2
+#heure=$3
+#capteur=$4
+
+#SQL database connection information
 DB_USER='CTL';
 DB_PASSWD='systemctl';
-
 DB_NAME='sae23';
 TABLE='Mesure';
 
-data='800';
+#sends the newly formatted data to the SQL table
+/opt/lampp/bin/mysql --user=$DB_USER --password=$DB_PASSWD $DB_NAME -se "INSERT INTO $TABLE (Nom_capt, valeur, date, horaire) VALUES ('$4', '$1', '$2', '$3')"
 
-/opt/lampp/bin/mysql --user=$DB_USER --password=$DB_PASSWD $DB_NAME << EOF
-INSERT INTO $TABLE (Nom_capt, valeur) VALUES ("TEST", "$data");
-EOF

@@ -1,0 +1,10 @@
+#crontab file
+#launches every script every ten minutes
+SHELL=/bin/bash
+
+*/10 * * * * /bin/bash /home/etud/Documents/GitHub/SAE23/recup_capteurs.sh
+*/10 * * * * /bin/bash /home/etud/Documents/GitHub/SAE23/e105_data_extraction.sh
+*/10 * * * * /bin/bash /home/etud/Documents/GitHub/SAE23/e003_data_extraction.sh
+*/10 * * * * /bin/bash /home/etud/Documents/GitHub/SAE23/b002_data_extraction.sh
+*/10 * * * * /bin/bash /home/etud/Documents/GitHub/SAE23/b105_data_extraction.sh
+

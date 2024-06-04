@@ -1,0 +1,6 @@
+#! /bin/bash
+#initialises everyting by installing what's needed and editing the crontab file
+
+sudo su -c "apt install jq"
+crontab ./crontab
+
