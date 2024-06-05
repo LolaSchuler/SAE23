@@ -10,5 +10,5 @@ cd /opt/lampp/bin
 
 #SQL request ; result is stored in a file
 liste=$(./mysql --user=$DB_USER --password=$DB_PASSWD $DB_NAME -se "SELECT Nom_capt From Capteur")
-echo $liste > ~/Documents/GitHub/SAE23/capteurs
+echo $liste > /home/etud/Documents/GitHub/SAE23/capteurs
 
