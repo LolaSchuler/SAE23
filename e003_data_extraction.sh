@@ -2,7 +2,7 @@
 #gets data from MQTT broker
 
 #gets room E003 sensor's name (AM107-26)
-capteur=$(cat ~/Documents/GitHub/SAE23/capteurs | cut -d " " -f 2)
+capteur=$(cat /home/etud/Documents/GitHub/SAE23/capteurs | cut -d " " -f 2)
 
 #gets exactly one message from the sensor thanks to the MQTT broker
 message=$(mosquitto_sub -h mqtt.iut-blagnac.fr -t AM107/by-deviceName/$capteur/# -C 1)
@@ -13,4 +13,4 @@ date=$(date +%Y-%m-%d)
 heure=$(date +%T)
 
 #launches the data sending script
-bash ./data_insertion $valeur $date $heure $capteur
+bash /home/etud/Documents/GitHub/SAE23/data_insertion $valeur $date $heure $capteur
