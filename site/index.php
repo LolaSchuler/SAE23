@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300&display=swap" rel="stylesheet">		<!-- Pour avoir Lexend si on veut.... -->
-    <link rel="stylesheet" type="text/css" href="./styles/style<.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="./styles/style.css" media="screen" />
 </head>
 
 <body>
@@ -75,6 +75,7 @@
     
     ?>
     
+    <p> Attention : Pour des raisons de sécurité, nous avons choisi de ne pas afficher le nom des gestionnaires des bâtiments. </p>
     
     </section>
     
@@ -93,7 +94,7 @@
 	
 	mysqli_close($id_bd);
     
-    /*Affichage de la liste des bâtiments*/
+    /*Affichage de la liste des salles*/
     
     echo '<table>';
     echo '<thead>';

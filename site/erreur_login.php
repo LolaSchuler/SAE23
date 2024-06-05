@@ -37,8 +37,8 @@
 			<hr />
 		</section>
 		<footer>
-			<p><a href="catalogue.php">Retour au catalogue</a></p>
-			<p><a href="admin_formulaire.html">Retour à l'identification</a></p>
+			<p><a href="index.php">Retour à la page d'accueil </a></p>
+			<p><a href="admin_formulaire.html">Retour à l'authentification</a></p>
 		</footer>
 	</body>
 </html>
