@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client :  localhost
--- Généré le :  Mar 04 Juin 2024 à 15:48
+-- Généré le :  Mer 05 Juin 2024 à 14:45
 -- Version du serveur :  5.6.20
 -- Version de PHP :  5.5.15
 
@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `Mesure` (
 `ID_mes` int(10) NOT NULL,
   `date` date NOT NULL,
   `horaire` time NOT NULL,
-  `valeur` int(5) NOT NULL,
+  `valeur` float NOT NULL,
   `Nom_capt` varchar(10) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
 
@@ -121,7 +121,7 @@ INSERT INTO `Mesure` (`ID_mes`, `date`, `horaire`, `valeur`, `Nom_capt`) VALUES
 CREATE TABLE IF NOT EXISTS `Salle` (
   `Nom_salle` varchar(4) NOT NULL,
   `Type` varchar(5) NOT NULL,
-  `CapaciteAccueil` int(2) NOT NULL,
+  `CapaciteAccueil` int(3) NOT NULL,
   `ID_bat` varchar(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
