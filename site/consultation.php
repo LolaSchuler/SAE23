@@ -18,10 +18,16 @@
     	<h1>Consultation</h1>
     	<p>Ici, vous pouvez visualiser les dernières mesures de chaque capteur.</p>
     </header>
-    	<section>
-    		<?php
-    			include 
-    	</section>
+    	<?php
+    		include ("mysql.php");
+    		
+    		$requete = " SELECT * FROM `Mesure` ";
+    		$resultat = mysql_query($id_bd, $requete)
+    			or die("Ex&eacute;cution de la requete impossible");
+    		
+    		mysqli_close($id_bd);
+    		
+    		
     <footer>
     
     </footer>
