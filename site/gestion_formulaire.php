@@ -34,36 +34,39 @@
 	<form name="gestion_choix" action="./gestion_affichage.html" method="post" enctype="multipart/form-data">
 		<fieldset>
 			<legend>Choix</legend>
-			<p>
 
 			<?php
-				include ("connexion_sql.php");
-				METHODE POST POUR PRENDRE LE GESTIONNAIRE QUI CORRESPOND À TELLE OU TELLE PERSONNE
-				$requete = "SELECT * FROM `		COMPLÉTER QUAND J'AURAI LA BASE DE DONNÉES"
-				$resultat = mysqli_query($id_bd, $requete)
-					or die ("Execution de la requête impossible : $requete");
-				mysqli_close($id_bd);
+				<p>
+					/* Accès à la base */
+					include ("connexion_sql.php");
 
-				$i = true ;
-				while($ligne=mysqli_fetch_array($resultat))
-					{
-						extract($ligne);
-						if ($i)
-							{
-								echo '<label for="capteur">Capteur : </label>';
-								echo '<select id="capteur" name="capteur">';
-								echo '<option value="NOM DE LA COLONNE A CHANGER ATTENTION" selected="selected">NOM DE LA COLONNE A CHANGER ATTENTION</option>';
-								$i=false;
-							}
-						else
-							{
-								echo '<option value="NOM DE LA COLONNE A CHANGER ATTENTION">NOM DE LA COLONNE A CHANGER ATTENTION</option>';
-							}
-					}
-				echo '</select>';
+					/* Sélectionner tous les capteurs de la table capteur qui appartiennent au bâtiment du gestionnaire*/
+					$requete = "SELECT * FROM `Type` ORDER BY `CodeType`"
+					$resultat = mysqli_query($id_bd, $requete)
+						or die ("Execution de la requête impossible : $requete");
+					mysqli_close($id_bd);
+
+					$i = true ;
+					while($ligne=mysqli_fetch_array($resultat))
+						{
+							extract($ligne);
+							if ($i)
+								{
+									echo '<label for="capteur">Capteur : </label>';
+									echo '<select id="capteur" name="capteur">';
+									echo '<option value="NOM DE LA COLONNE A CHANGER ATTENTION" selected="selected">NOM DE LA COLONNE A CHANGER ATTENTION</option>';
+									$i=false;
+								}
+							else
+								{
+									echo '<option value="NOM DE LA COLONNE A CHANGER ATTENTION">NOM DE LA COLONNE A CHANGER ATTENTION</option>';
+								}
+						}
+					echo '</select>';
+
+				</p>
 			?>
 
-			</p>
 		</fieldset>
 		<p>
 			<input type="submit" value="Faites votre choix" />

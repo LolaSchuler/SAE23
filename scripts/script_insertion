@@ -1,0 +1,22 @@
+#!/bin/bash
+#gets data from MQTT broker
+
+#gets exactly one message from the sensor thanks to the MQTT broker
+message=$(mosquitto_sub -h mqtt.iut-blagnac.fr -t AM107/by-deviceName/$1/# -C 1)
+valeur=$(echo -n "$message" | jq '.[0].co2')
+
+#gets the other variables that will be used in the SQL table
+date=$(date +%Y-%m-%d)
+horaire=$(date +%T)
+
+#SQL database connection information
+DB_USER='CTL'
+DB_PASSWD='systemctl'
+DB_NAME='sae23'
+TABLE='Mesure'
+
+#sends the newly formatted data to the SQL table
+/opt/lampp/bin/mysql --user=$DB_USER --password=$DB_PASSWD $DB_NAME -se "INSERT INTO $TABLE (Nom_capt, valeur, date, horaire) VALUES ('$1', '$valeur', '$date', '$horaire')"
+
+#TEST À SUPPRIMER APRÈS
+echo "$1 capteur fait $date $horaire" >> ./test.txt

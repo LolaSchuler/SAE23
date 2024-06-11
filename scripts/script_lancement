@@ -1,0 +1,23 @@
+#!/bin/bash
+#SQL request to get all the different sensors that are listed in the "Capteur" table
+
+#SQL database connection information
+DB_USER='CTL';
+DB_PASSWD='systemctl';
+DB_NAME='sae23';
+
+
+#SQL request ; result is stored in a file
+liste=$(../../../../../../opt/lampp/bin/mysql --user=$DB_USER --password=$DB_PASSWD $DB_NAME -se "SELECT Nom_capt From Capteur")
+
+
+echo $liste | sed 's/ /\n/g' > ./capteurs
+nb_lignes=$(wc -l ./capteurs | cut -d " " -f 1)
+
+
+#launches ./script_insertion with the name of the sensor as an argument for each line (each sensor) in ./capteurs
+for ((i = 1 ; i < $nb_lignes+1 ; i++ ))
+do
+	capteur=$(sed -n ${i}p capteurs)
+	bash -e ./script_insertion $capteur &
+done
