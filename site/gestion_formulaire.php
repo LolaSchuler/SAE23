@@ -1,3 +1,9 @@
+<?php
+	// Démarrage de la session
+	session_start();
+	//$username=$_SESSION["login"];
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -27,21 +33,19 @@
 
 	<h1>Espace Gestionnaire</h1>
 
-	<p>
-		Veuillez choisir un capteur ainsi qu'une durée :
-	</p>
 
 	<form name="gestion_choix" action="./gestion_affichage.html" method="post" enctype="multipart/form-data">
 		<fieldset>
-			<legend>Choix</legend>
+			<legend>Veuillez choisir un capteur ainsi qu'une durée :</legend>
 
 			<?php
-				<p>
+				echo '<p>';
+				$username=$_GET['login'];
 					/* Accès à la base */
-					include ("connexion_sql.php");
+					include ("mysql.php");
 
 					/* Sélectionner tous les capteurs de la table capteur qui appartiennent au bâtiment du gestionnaire*/
-					$requete = "SELECT * FROM `Type` ORDER BY `CodeType`"
+					$requete = "SELECT Capteur.Nom_capt, Capteur.Nom_salle, Salle.ID_bat, Batiment.login_gest FROM Capteur INNER JOIN Salle ON Salle.Nom_salle = Capteur.Nom_salle INNER JOIN Batiment ON Batiment.ID_bat = Salle.ID_bat WHERE Batiment.login_gest = '$username' ;";
 					$resultat = mysqli_query($id_bd, $requete)
 						or die ("Execution de la requête impossible : $requete");
 					mysqli_close($id_bd);
@@ -53,19 +57,28 @@
 							if ($i)
 								{
 									echo '<label for="capteur">Capteur : </label>';
-									echo '<select id="capteur" name="capteur">';
-									echo '<option value="NOM DE LA COLONNE A CHANGER ATTENTION" selected="selected">NOM DE LA COLONNE A CHANGER ATTENTION</option>';
+									echo '<select id="'.$Nom_capt.'" name="capteur">';
+									echo '<option value="'.$Nom_capt.'" selected="selected">'.$Nom_capt.' (salle '.$Nom_salle.')</option>';
 									$i=false;
 								}
 							else
 								{
-									echo '<option value="NOM DE LA COLONNE A CHANGER ATTENTION">NOM DE LA COLONNE A CHANGER ATTENTION</option>';
+									echo '<option value="'.$Nom_capt.'">'.$Nom_capt.' (salle '.$Nom_salle.')</option>';
 								}
 						}
 					echo '</select>';
 
-				</p>
+				echo '</p>';
+
 			?>
+
+			<p>
+				Durée  :
+				<input type="radio" name="duree" value="1_jour" id="1_jour" /><label for="1_jour">1 jour</label>
+				<input type="radio" name="duree" value="5_jours" id="5_jours" /><label for="5_jours">5 jours</label>
+				<input type="radio" name="duree" value="10_jours" id="10_jours" /><label for="10_jours">10 jours</label>
+			</p>
+				
 
 		</fieldset>
 		<p>
