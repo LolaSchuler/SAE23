@@ -1,23 +1,29 @@
 <?php
-	session_start();
-	$_SESSION["mdp"]=$_REQUEST["mdp"];  // Récupération du mot de passe 
-	$motpasse=$_SESSION["mdp"];
-	$_SESSION["login"]=$_REQUEST["login"]; // Récupération du compte
-	$username=$_SESSION["login"];
-	$_SESSION["auth"]=FALSE;
 
-	// Script de vérification du mot de passe d'administration, en utilisant la table Administration
+	$supp=$_POST['supprimer'];
+	$ajout=$_POST['ajouter'];
+	$ligne=$_POST['ligne'];
+	$table=$_POST['table'];
+	
 
-	if(empty($username) & empty($motpasse))
-		header("Location:erreur_login.php");
-	else
-     {
+	// Script d'exécution de la requête de modification de table
+
 		/* Accès à la base */
 		include ("mysql.php");
-
-		$requete = "SELECT `login_admin`, `MotPasse_admin` FROM `Administration`";
-		$resultat = mysqli_query($id_bd, $requete)
-			or die("Execution de la requete impossible : $requete");
+		
+		if ($ajout!=0)
+		 {
+			$requete1 = "INSERT INTO `$table` (`ID_bat`, `nom`, `login_gest`, `MotPasse_gest`) VALUES ('', '', '', '')";
+			$resultat1 = mysqli_query($id_bd, $requete1)
+				or die("Execution de la requete impossible : $requete");
+		}
+		else 
+		{
+			$requete2 = "SELECT * FROM `$table`";
+			$resultat2 = mysqli_query($id_bd, $requete2)
+				or die("Execution de la requete impossible : $requete");
+		}
+		
 
 		$ligne = mysqli_fetch_row($resultat);
 		if ($username==$ligne[0])
