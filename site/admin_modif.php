@@ -2,6 +2,8 @@
 	session_start(); 
 	if ($_SESSION["auth"]!=TRUE)
 		header("Location:login_error.php");
+		
+	$type=$_POST['type'];
 ?>
 
 <!DOCTYPE html>
@@ -13,27 +15,27 @@
 	</head>
 
 	<body>
-		<?php
-			$type=$_POST['type'];
-		?>
+	
+	<header>
+	<h1> Table à modifier : <?php echo $type ?> </h1>
+	</header>
+	
 		<section> 
 			<br />
 			<form action="modif.php" method="post" enctype="multipart/form-data">
 				<fieldset>
-					<legend> Table à modifier : <?php echo $type ?> </legend>
-					<label for="type"><strong> Que voulez-vous faire ? </strong></label>
+					<legend> Supprimer une ligne </legend>
+					<label for="type"><strong> Souhaitez-vous supprimer une ligne ? </strong></label>
 					<input type="hidden" name="table" value="<?php echo $type ?>" id ="type" />
 					<br />
-					<input type="radio" name="supprimer" value="Supprimer" id ="choix" />
-					<label for="choix"> Supprimer une ligne </label>
+					<input type="radio" name="supprimer" value="1" id ="supprimer" />
+					<label for="supprimer"> Oui </label>
+					<input type="radio" name="supprimer" value="0" id ="supprimer" checked />
+					<label for="supprimer"> Non </label>
 					<br />
-					<input type="radio" name="ajouter" value="Ajouter" id ="choix" />
-					<label for="choix"> Ajouter une ligne </label>
-					<br />
-					
 					<label for="ligne"> <strong> Quelle ligne modifier ? </strong> </label>
 					<select id="ligne" name="ligne">
-				
+
 				<?php
 						/* Accès à la base */
 						include ("mysql.php");
@@ -57,6 +59,42 @@
 					?>
 					
 				</select>
+				
+				</fieldset>
+				
+				<fieldset>
+					<legend> Ajouter une ligne </legend>
+						<label for="ajout"><strong> Voulez-vous ajouter une ligne ? </strong></label>
+						<input type="hidden" name="ajout" id ="ajout" />
+						<input type="radio" name="ajouter" value="1" id ="ajouter" />
+						<label for="ajouter"> Oui </label>
+						<input type="radio" name="ajouter" value="0" id ="ajouter" checked />
+						<label for="ajouter"> Non </label>
+						
+						<?php
+							/* Accès à la base */
+							include ("mysql.php");
+	
+							/* Sélection de la table choisie précédemment à l'aide de l'argument type */
+							$requete2 = "DESCRIBE `$type`";
+							$resultat2 = mysqli_query($id_bd, $requete2)
+								or die("Ex&eacute;cution de la requete impossible");
+							mysqli_close($id_bd);
+							
+							$j=true;		
+							while($ligne2=mysqli_fetch_array($resultat2))
+						 	{
+								extract($ligne2);
+								echo "<br />";
+								if ($j)
+							 	{
+									echo "<p>
+											<label for \"$ligne2[0]\"> Valeur pour le champ \"$ligne2[0]\" : </label>
+											<input type=\"text\" name=\"$ligne2[0]\" id=\"$ligne2[0]\" />	
+										</p>"; /*Attention : supprime les variables valeur1, valeur2, ... --> A CORRIGER */
+							 	}
+							 }
+						?>
 				
 				</fieldset>
 				

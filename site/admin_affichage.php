@@ -15,18 +15,18 @@
 
 <body>
     <header>
-    <h1> Affichage de la table <h1>
+    <h1> Affichage de la table </h1>
     <p> La table a bien été modifiée ! </p>
     </header>
     
     <section>
     
-    <?php
+    <?php 
+    /* A modifier avec des variables */
     
     include ("mysql.php");
     
-    $requete = "SELECT * FROM `Batiment`"; 
-    /*Comment faire pour afficher la table qui vient d'être modifiée sans créer 20 scripts ? */
+    $requete = "SELECT * FROM `Salle`"; 
 	$resultat = mysqli_query($id_bd, $requete)
 		or die("Ex&eacute;cution de la requete impossible");
 	
@@ -58,6 +58,7 @@
     <footer>
     
     <p><a href="index.php"> Retour à la page d'accueil </a></p>
+    <p><a href="admin_choix_table.html"> Modifier une autre table </a></p>
     
     </footer>
 
