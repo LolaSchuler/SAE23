@@ -43,11 +43,11 @@
 				{
 					extract($ligne);
 					echo '<tr>';
-					echo "<th> $ligne[6] </th>";
-					echo "<th> $ligne[5] </th>";
-					echo "<th> $ligne[3] </th>";
-					echo "<th> $ligne[7] </th>";
-					echo "<th> $ligne[2] </th>";
+					echo "<td> $ligne[6] </td>";
+					echo "<td> $ligne[5] </td>";
+					echo "<td> $ligne[3] </td>";
+					echo "<td> $ligne[7] </td>";
+					echo "<td> $ligne[2] </td>";
 					echo '</tr>';
 				}
 				echo '</table>';

@@ -19,18 +19,10 @@
 		$resultat = mysqli_query($id_bd, $requete)
 			or die("Execution de la requete impossible : $requete");
 
-		/*while($ligne = mysqli_fetch_assoc($resultat))
-			foreach ($ligne as $cle => $valeur)
-				echo "$cle : $valeur <br/>";*/
 
 		while($ligne = mysqli_fetch_row($resultat))
 		foreach ($ligne as $cle => $valeur)
 			{
-				/*for ($i=0; $i<=1; $i++)
-					{
-						echo $ligne[0][$i];
-						echo $ligne[1][$i];
-					}*/
 				if ($username==$ligne[0])
 				 	{
 						if ($motpasse==$ligne[1])
