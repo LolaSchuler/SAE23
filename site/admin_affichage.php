@@ -15,7 +15,8 @@
 
 <body>
     <header>
-    <h1> Affichage de la table </h1>
+    <h1> Administration de la base </h1>
+    <h2> Affichage de la table </h2>
     <p> La table a bien été modifiée ! </p>
     </header>
     

@@ -17,12 +17,13 @@
 	<body>
 	
 	<header>
-	<h1> Table à modifier : <?php echo $type ?> </h1>
+	<h1> Administration de la base </h1>
+	<h2> Table à modifier : <?php echo $type ?> </h2>
 	</header>
 	
 		<section> 
 			<br />
-			<form action="modif.php" method="post" enctype="multipart/form-data">
+			<form action="admin_exec_modif.php" method="post" enctype="multipart/form-data">
 				<fieldset>
 					<legend> Supprimer une ligne </legend>
 					<label for="type"><strong> Souhaitez-vous supprimer une ligne ? </strong></label>
@@ -101,6 +102,8 @@
 										</p>";
 								}
 							 }
+							 
+							 $_SESSION['titre']=$ligne2[0];
 						?>
 				
 				</fieldset>

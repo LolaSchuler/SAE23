@@ -13,17 +13,22 @@
 	</head>
 
 	<body>
+	
+	<header>
+	<h1> Administration de la base </h1>
+	</header>
+	
 		<section>
 			<br />
 			<form action="admin_modif.php" method="post" enctype="multipart/form-data">
 				<fieldset class="gauche">
 					<legend>Choisissez la table à modifier</legend>
 						<input type="radio" name="type" value="Batiment" id ="Batiment" checked="checked" />
-						<label for="Batiment"><strong> Table "Bâtiment" </strong></label><br />
+						<label for="Batiment"> Table "Bâtiment" </label><br />
 						<input type="radio" name="type" value="Capteur" id ="Capteur" />
-						<label for="Capteur"><strong> Table "Capteur" </strong></label><br />
+						<label for="Capteur"> Table "Capteur" </label><br />
 						<input type="radio" name="type" value="Salle" id ="Salle" />
-						<label for="Salle"><strong> Table "Salle" </strong></label><br />
+						<label for="Salle"> Table "Salle" </label><br />
 				</fieldset>
 				<div class="valid">
 					<input type="submit" value="Faites votre choix" />
