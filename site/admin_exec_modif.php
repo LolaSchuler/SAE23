@@ -55,7 +55,7 @@
 		}
 		elseif ($supp==1)
 		{
-			$requete2 = "DELETE FROM `sae23`.`$table` WHERE `$table`.`$titre` = '$ligne'";		//REMPLACER TITRE PAR COL
+			$requete2 = "DELETE FROM `sae23`.`$table` WHERE `$table`.`$titre` = '$ligne'";
 			$resultat = mysqli_query($id_bd, $requete2)
 				or ("Location:erreur_execution.php");
 			echo "<script type='text/javascript'>document.location.replace('admin_affichage.php');</script>";

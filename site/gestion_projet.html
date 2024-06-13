@@ -99,21 +99,28 @@
 				Lors de cette SAE, j’ai choisi de principalement m’occuper de la partie gestion de base de données. Ainsi, j’ai créé et initialisé la base de données sur PHPMyAdmin et je me suis occupée des pages “Administration”.
 			</p>
 			<p>
-				Dans un premier temps, j’ai dû commencer par créer un nouvel utilisateur (dans notre cas “CTL” pour Chloé Timothée Lola) associé à la base de données afin de pouvoir créer des tables par la suite.
+				Dans un premier temps, j’ai dû commencer par créer une nouvelle base de données (“sae23”) ainsi qu’un nouvel utilisateur (dans notre cas “CTL” pour Chloé Timothée Lola) associé à la base de données afin de pouvoir créer des tables par la suite.
 			</p>
 			<p>
 				Une fois les tables initialisées sur PHPMyAdmin, j’ai pu commencer à écrire les pages HTML et PHP d’Administration. 
 			</p>
 			<p>
-				Pour ce faire, j’ai choisi de commencer par initialiser une session grâce à un formulaire ayant pour but de vérifier l’identité de l’utilisateur grâce à un nom d’utilisateur ainsi qu’un mot de passe entrés dans le formulaire qui seront comparés par la suite avec la table “Administration” (contenant les identifiants corrects à utiliser). En effet, grâce à cela, seuls ceux qui ont connaissance de ces identifiants peuvent avoir accès aux pages de gestion de la base de données.
+				Pour ce faire, j’ai choisi de commencer par initialiser une session grâce à un formulaire ayant pour but de vérifier l’identité de l’utilisateur grâce à un nom d’utilisateur ainsi qu’un mot de passe entrés dans le formulaire qui seront comparés par la suite avec la table “Administration” (contenant les identifiants corrects à utiliser). En effet, grâce à cela, seuls ceux qui ont connaissance de ces identifiants peuvent avoir accès aux pages de gestion de la base de données. En cas de mauvais identifiants entrés, ou bien d’une absence d’information, l’utilisateur sera redirigé vers une page d’erreur de login que nous avons décidé d’utiliser de façon commune à tout le site Web afin d’en simplifier l’arborescence. Ainsi, deux liens principaux apparaissent sur cette page : le retour à l’authentification gestionnaire et le retour à l’authentification administrateur.
 			</p>
 			<p>
-				En ce qui concerne les pages suivantes, soit celles uniquement accessibles après authentification, j’ai choisi de ne pas faire tous les formulaires sur une seule page mais plutôt de pousser l’utilisateur à suivre un chemin où il choisit ce qu’il veut faire petit à petit. Ainsi, il commence par choisir la table à modifier avant de choisir ce qu’il compte y faire (ajout ou suppression de ligne).
+				En ce qui concerne les pages suivantes, soit celles uniquement accessibles après authentification, j’ai choisi de ne pas faire tous les formulaires sur une seule page mais plutôt de pousser l’utilisateur à suivre un chemin où il choisit ce qu’il veut faire petit à petit. Ainsi, il commence par choisir la table à modifier avant de choisir ce qu’il compte y faire (ajout ou suppression de ligne) et d’être redirigé vers une page qui informe d’une erreur d’exécution (que nous avons en commun entre toutes les pages du site) ou bien qui valide la bonne exécution de la requête et renvoie la table modifiée par la suite.
+
 			</p>
 			<p>
 				De plus, j’ai choisi de définir plusieurs valeurs communes notamment pour pouvoir conserver le nom de la table modifiée, les lignes à supprimer ou bien à ajouter, …
 Pour ce faire, j’ai commencé par utiliser des méthodes POST, mais je me suis vite retrouvée limitée puisqu’il fallait systématiquement des formulaires avec des variables cachées afin de pouvoir transférer les données à la page suivante. Ainsi, j’ai commencé à utiliser des variables contenues dans la session, ce qui était bien plus simple.
 Cependant, j’ai choisi de conserver les deux méthodes réparties sur les pages afin de montrer que les deux peuvent fonctionner ; l’une est juste plus pratique que l’autre.
+			</p>
+			<p>
+			Pendant l’écriture de ces pages, j’ai décidé de faire la page d’accueil afin de simplifier la navigation sur le site Web. En effet, au début nous devions utiliser les URL précises afin de pouvoir vérifier nos codes, comme il n’y avait aucun lien pour accéder à la première page de nos sections respectives.
+			</p>
+			<p>
+			De plus, j’ai aussi choisi de faire une brève pause pendant l’écriture de mes pages afin de me consacrer à la génération d’une page sur les mentions légales.
 			</p>
 		</article>
 
@@ -215,7 +222,7 @@ Cependant, j’ai choisi de conserver les deux méthodes réparties sur les page
     
 	<footer>
 		<p><a href="index.php"> Retour à la page d'accueil </a></p>
-		<p><a href="admin_formulaire.html"> Gestion de la base de données </a> (accès restreint) </p>
+		<p><a href="admin_formulaire.html"> Administration de la base de données </a> (accès restreint) </p>
 		<p><a href="gestion_authentification.html"> Gestion des capteurs </a> (accès restreint) </p>
 		<p><a href="consultation.php"> Consultation des dernières valeurs </a></p>
 		<p><a href="mentions.html"> Mentions légales </a></p>

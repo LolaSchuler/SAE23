@@ -38,8 +38,8 @@
 		</section>
 		<footer>
 			<p><a href="index.php">Retour à la page d'accueil </a></p>
-			<p><a href="admin_formulaire.html">Retour à l'authentification (administrateur) </a></p>
-			<p><a href="gestion_authentification.html">Retour à l'authentification (gestionnaire) </a></p>
+			<p><a href="admin_formulaire.html">Retour à l'authentification (espace administrateur) </a></p>
+			<p><a href="gestion_authentification.html">Retour à l'authentification (espace gestionnaire) </a></p>
 		</footer>
 	</body>
 </html>

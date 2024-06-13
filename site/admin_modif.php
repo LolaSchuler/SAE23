@@ -34,7 +34,7 @@
 				<fieldset>
 					<legend> Supprimer une ligne </legend>
 					<label for="type"><strong> Souhaitez-vous supprimer une ligne ? </strong></label>
-					<input type="hidden" name="table" value="<?php echo $type ?>" id ="type" />			//UTILISER SESSION
+					<input type="hidden" name="table" value="<?php echo $type ?>" id ="type" />
 					<br />
 					<input type="radio" name="supprimer" value="1" id ="supprimer" />
 					<label for="supprimer"> Oui </label>
@@ -51,10 +51,10 @@
 						/* Sélection de la table choisie précédemment à l'aide de l'argument type */
 						$requete = "SELECT * FROM `$type`";
 						$resultat = mysqli_query($id_bd, $requete)
-							or die("Location:erreur_execution.php");
+							or ("Location:erreur_execution.php");
 						mysqli_close($id_bd);
 
-						$i=true;		
+						$i=true;
 						while($ligne=mysqli_fetch_array($resultat))
 						 {
 							extract($ligne);
@@ -89,9 +89,9 @@
 								or die("Location:erreur_execution.php");
 							mysqli_close($id_bd);
 							
-							//$ligne2=mysqli_fetch_array($resultat2);
-							//$_SESSION['titre']=$ligne2[0];
-							
+							$ligne2=mysqli_fetch_array($resultat2);
+							$_SESSION['titre']=$ligne2[0];
+
 							$j=0;
 							
 							$k=true;
@@ -110,7 +110,7 @@
 								}
 							 }
 							 
-							 $_SESSION['titre']=$ligne2[0];
+							 //$_SESSION['titre']=$ligne2[0];
 						?>
 				
 				</fieldset>
