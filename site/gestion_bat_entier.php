@@ -30,7 +30,7 @@
 		<caption>
 			Visualisation Gestionnaire - Bâtiment entier
 		</caption>
-		<tr>
+		<tr class="titre">
 				<th>Salle</th>
 				<th>Date</th>
 				<th>Heure</th>

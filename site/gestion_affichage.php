@@ -45,7 +45,7 @@
 			$j=$_POST['duree'];
 			$capteur=$_POST['capteur'];
 
-			$requete = "SELECT Salle.Nom_salle, Mesure.date, Mesure.horaire, Mesure.valeur FROM Mesure INNER JOIN Capteur ON Capteur.Nom_capt = Mesure.Nom_capt INNER JOIN Salle ON Salle.Nom_salle = Capteur.Nom_salle INNER JOIN Batiment ON Batiment.ID_bat = Salle.ID_bat WHERE Batiment.login_gest = '$username' AND Mesure.date >= DATE_ADD(CURDATE(), INTERVAL -$j DAY) AND Mesure.Nom_capt = '$capteur' ORDER BY Mesure.date, Mesure.horaire ;";
+			$requete = "SELECT Salle.Nom_salle, Mesure.date, Mesure.horaire, Mesure.valeur FROM Mesure INNER JOIN Capteur ON Capteur.Nom_capt = Mesure.Nom_capt INNER JOIN Salle ON Salle.Nom_salle = Capteur.Nom_salle INNER JOIN Batiment ON Batiment.ID_bat = Salle.ID_bat WHERE Batiment.login_gest = '$username' AND Mesure.date > DATE_SUB(CURDATE(), INTERVAL $j DAY) AND Mesure.Nom_capt = '$capteur' ORDER BY Mesure.date DESC, Mesure.horaire DESC ;";
 
 			$resultat = mysqli_query($id_bd, $requete)
 					or die ("Ex&eacute;cution de la requête impossible : $requete");

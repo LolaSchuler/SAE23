@@ -14,34 +14,32 @@
 </head>
 
 <body>
-<section>
-	<p>
-	<br />
-	<h1>Administration de la base de données : </h1>
-	<p><strong> /!\ Acc&egrave;s limit&eacute; aux personnes autoris&eacute;es /!\ </strong></p>
-	<br />
-	</p>
-	
-	<form action="admin_login.php" method="post" enctype="multipart/form-data">
-		<fieldset>
-			<legend> Authentification au compte administrateur : </legend>
-			<label for="login"> Nom d'utilisateur : </label>
-			<input type="text" name="login" id="login" />
-			<label for="mdp"> Mot de passe : </label>
-			<input type="password" name="mdp" id="mdp" />
-		</fieldset>
+	<section>
 		<p>
-			<input type="submit" value="Valider" />
+		<br />
+		<h1>Administration de la base de données : </h1>
+		<p><strong> /!\ Acc&egrave;s limit&eacute; aux personnes autoris&eacute;es /!\ </strong></p>
+		<br />
 		</p>
-	</form>
-	<hr />
-</section>
+	
+		<form action="admin_login.php" method="post" enctype="multipart/form-data">
+			<fieldset>
+				<legend> Authentification au compte administrateur : </legend>
+				<label for="login"> Nom d'utilisateur : </label>
+				<input type="text" name="login" id="login" />
+				<label for="mdp"> Mot de passe : </label>
+				<input type="password" name="mdp" id="mdp" />
+			</fieldset>
+			<p>
+				<input type="submit" value="Valider" />
+			</p>
+		</form>
+	</section>
 	
     <hr />
     
 	<footer>
 		<p><a href="index.php"> Retour à la page d'accueil </a></p>
-		<p><a href="admin_formulaire.html"> Gestion de la base de données </a> (accès restreint) </p>
 		<p><a href="gestion_authentification.html"> Gestion des capteurs </a> (accès restreint) </p>
 		<p><a href="consultation.php"> Consultation des dernières valeurs </a></p>
 		<p><a href="gestion_projet.html"> Gestion de projet </a></p>

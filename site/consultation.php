@@ -18,7 +18,7 @@
     <header>
     </header>
     	<h1>Consultation</h1>
-    	<p>Ici, vous pouvez visualiser les dernières mesures efféctuée sur chaques salles.</p>
+    	<p>Ici, vous pouvez visualiser les dernières mesures effectuée sur chaque salle.</p>
     	<?php
     		include ("mysql.php");
     		
@@ -31,12 +31,12 @@
     
     		    echo '<table>';
     			echo '<thead>';
-    			echo '<tr>';
+    			echo '<tr class="titre">';
     			echo '<th> Horaire </th>';
-    			echo '<th> date </th>';
+    			echo '<th> Date </th>';
     			echo '<th> Salle </th>';
-    			echo '<th> mesure </th>';
-    			echo '<th> unité </th>';
+    			echo '<th> Mesure </th>';
+    			echo '<th> Unité </th>';
     			echo '</tr>';
     			echo '</thead>';
 				while($ligne=mysqli_fetch_array($resultat))
@@ -61,7 +61,6 @@
 		<p><a href="index.php"> Retour à la page d'accueil </a></p>
 		<p><a href="admin_formulaire.html"> Gestion de la base de données </a> (accès restreint) </p>
 		<p><a href="gestion_authentification.html"> Gestion des capteurs </a> (accès restreint) </p>
-		<p><a href="consultation.php"> Consultation des dernières valeurs </a></p>
 		<p><a href="gestion_projet.html"> Gestion de projet </a></p>
 		<p><a href="mentions.html"> Mentions légales </a></p>
     </footer>

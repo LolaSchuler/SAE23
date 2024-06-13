@@ -33,16 +33,13 @@
   							exit();
 		 				}
 					}
-				else
-				 	{
-						$_SESSION = array(); // Réinitialisation du tableau de session
-          	  			session_destroy();   // Destruction de la session
-           	 			unset($_SESSION);    // Destruction du tableau de session
-           				mysqli_close($id_bd);
-           				 echo "<script type='text/javascript'>document.location.replace('erreur_login.php');</script>";
-					}
 			}
 
+		$_SESSION = array(); // Réinitialisation du tableau de session
+        session_destroy();   // Destruction de la session
+        unset($_SESSION);    // Destruction du tableau de session
+        mysqli_close($id_bd);
+        echo "<script type='text/javascript'>document.location.replace('erreur_login.php');</script>";
 
      } 
  ?>

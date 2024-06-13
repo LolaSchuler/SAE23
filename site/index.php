@@ -3,7 +3,7 @@
 <head>
     <title>SAE23 - Accueil</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />						<!-- Pour bien gérer le RWD -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="CTL" />
     <meta name="description" content="Accueil" />
     <meta name="keywords" content="HTML, CSS" />
@@ -26,7 +26,9 @@
     <p> Dans le prolongement de la sae 15, qui était individuelle, cette SAE correspond à une solution plus large que dutraitement de données simple. </p>
     
     <p> Lors de la SAE 23, "Mettre en place une solution informatique pour l'entreprise", il nous a été demandé de développer une solution informatique ayant pour but de centraliser des données issues de capteurs. Plus que cela, nous devions aussi offrir une interface homme-machine (IHM) qui devait permettre à un utilisateur de pouvoir effectuer des modifications sur la base de données. </p>
-    
+
+	<br/>
+
     <p> Les compétences mobilisées lors de cette SAE correspondent à : </p>
     <ul>
     	<li> Savoir programmer des scripts en Bash </li>
@@ -125,11 +127,13 @@
     <hr />
     
 	<footer>
-		<p><a href="admin_formulaire.html"> Gestion de la base de données </a> (accès restreint) </p>
-		<p><a href="gestion_authentification.html"> Gestion des capteurs </a> (accès restreint) </p>
-		<p><a href="consultation.php"> Consultation des dernières valeurs </a></p>
-		<p><a href="gestion_projet.html"> Gestion de projet </a></p>
-		<p><a href="mentions.html"> Mentions légales </a></p>
+		<ul>
+			<li><a href="admin_formulaire.html"> Gestion de la base de données </a> (accès restreint) </li>
+			<li><a href="gestion_authentification.html"> Gestion des capteurs </a> (accès restreint) </li>
+			<li><a href="consultation.php"> Consultation des dernières valeurs </a></li>
+			<li><a href="gestion_projet.html"> Gestion de projet </a></li>
+			<li><a href="mentions.html"> Mentions légales </a></li>
+		</ul>
     </footer>
 
 </body>

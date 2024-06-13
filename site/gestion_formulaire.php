@@ -77,9 +77,9 @@
 		</p>
 	</form>
 
-	<aside>
+	<p>
 		Ou bien peut-être préfèreriez-vous visualiser l'ensemble de votre bâtiment ? Si c'est le cas, <a href="./gestion_bat_entier.php">veuillez cliquer ici !</a>
-	</aside>
+	</p>
 
     <hr />
     
