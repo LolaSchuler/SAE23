@@ -81,18 +81,25 @@
 								or die("Location:erreur_execution.php");
 							mysqli_close($id_bd);
 							
-							$ligne2=mysqli_fetch_array($resultat2);
-							$_SESSION['titre']=$ligne2[0];
+							//$ligne2=mysqli_fetch_array($resultat2);
+							//$_SESSION['titre']=$ligne2[0];
 							
-							for($i = 1; $i <= 4; $i=$i+1)
-						 	{
+							$j=0;
+							
+							$k=true;
+							while ($ligne2=mysqli_fetch_array($resultat2))
+							{
 								extract($ligne2);
-								echo "<br />";
-								$valeur="valeur".$i;
-								echo "<p>
-										<label for \"$valeur\"> Valeur pour le champ \"$ligne2[0]\" : </label>
-										<input type=\"text\" name=\"$valeur\" id=\"$valeur\" />
-									</p>";	/* A REVOIR pour les noms de type*/
+								if ($k)
+								{
+									$j=$j+1;
+									$valeur="valeur".$j;
+									echo "<br />";
+									echo "<p>
+											<label for \"$valeur\"> Valeur pour le champ \"$ligne2[0]\" : </label>
+											<input type=\"text\" name=\"$valeur\" id=\"$valeur\" />
+										</p>";
+								}
 							 }
 						?>
 				
@@ -106,16 +113,11 @@
 				
 			</form>
 		</section>
-
-    <hr />
-    
-    <p><a href="admin_formulaire.html"> Gestion de la base de données </a> (accès restreint) </p>
-    <p><a href="gestion_authentification.html"> Gestion des capteurs </a> (accès restreint) </p>
-    <p><a href="consultation.php"> Consultation des dernières valeurs </a></p>
-    <p><a href="gestion_projet.html"> Gestion de projet </a></p>
-    <p><a href="mentions.html"> Mentions légales </a></p>
-    
-    </footer>
+		
+		<footer>
+			<p><a href="index.php">Retour à la page d'accueil</a></p>
+			<p><a href="admin_choix_table.html">Retour au choix de la table</a></p>
+		</footer>
 		
 	</body>
 </html>
