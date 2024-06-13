@@ -2,5 +2,5 @@
 #launches the script every ten minutes
 SHELL=/bin/bash
 
-*/10 * * * * cd /home/etud/Desktop/SAE23/scripts && bash script_lancement
+*/10 * * * * cd /home/etud/Documents/GitHub/SAE23/scripts && bash script_lancement
 

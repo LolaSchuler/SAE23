@@ -2,5 +2,6 @@
 #initialises everyting by installing what's needed and editing the crontab file
 
 sudo su -c "apt install jq"
+cd /home/etud/Documents/GitHub/SAE23/scripts
 sudo su -c "crontab ./crontab"
 
