@@ -65,7 +65,7 @@
     <footer>
     
     <p><a href="index.php"> Retour à la page d'accueil </a></p>
-    <p><a href="admin_choix_table.html"> Modifier une autre table </a></p>
+    <p><a href="admin_choix_table.php"> Modifier une autre table </a></p>
     
     </footer>
 

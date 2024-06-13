@@ -20,14 +20,6 @@
 
 <body>
     <header>
-		<nav>
-			<ul>
-				<li><a href="./index.html">Accueil</a></li>
-				<li><a href="./consultation.html">Consultation</a></li>
-				<li><a href="./admin_authentification.html">Espace Administrateur</a></li>
-				<li><a href="./gestion_authentification.html">Espace Gestionnaires</a></li>
-			</ul>
-		</nav>
     </header>
 
 	<h1>Espace Gestionnaire</h1>
@@ -83,8 +75,18 @@
 		</p>
 	</form>
 
-    <footer>
-    </footer>
+	<aside>
+		Ou bien peut-être préfèreriez-vous visualiser l'ensemble de votre bâtiment ? Si c'est le cas, <a href="./gestion_bat_entier.php">veuillez cliquer ici !</a>
+	</aside>
 
+    <hr />
+    
+    <p><a href="admin_formulaire.html"> Gestion de la base de données </a> (accès restreint) </p>
+    <p><a href="gestion_authentification.html"> Gestion des capteurs </a> (accès restreint) </p>
+    <p><a href="consultation.php"> Consultation des dernières valeurs </a></p>
+    <p><a href="gestion_projet.html"> Gestion de projet </a></p>
+    <p><a href="mentions.html"> Mentions légales </a></p>
+    
+    </footer>
 </body>
 </html>

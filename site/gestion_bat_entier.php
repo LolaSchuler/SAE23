@@ -26,7 +26,7 @@
 
 	<table>
 		<caption>
-			Visualisation Gestionnaire
+			Visualisation Gestionnaire - Bâtiment entier
 		</caption>
 		<tr>
 				<th>Salle</th>
@@ -40,15 +40,11 @@
 			/* Accès à la base */
 			include ("mysql.php");
 
-			$j=$_POST['duree'];
-			$capteur=$_POST['capteur'];
-
-			$requete = "SELECT Salle.Nom_salle, Mesure.date, Mesure.horaire, Mesure.valeur FROM Mesure INNER JOIN Capteur ON Capteur.Nom_capt = Mesure.Nom_capt INNER JOIN Salle ON Salle.Nom_salle = Capteur.Nom_salle INNER JOIN Batiment ON Batiment.ID_bat = Salle.ID_bat WHERE Batiment.login_gest = '$username' AND Mesure.date >= DATE_ADD(CURDATE(), INTERVAL -$j DAY) AND Mesure.Nom_capt = '$capteur' ORDER BY Mesure.date, Mesure.horaire ;";
+			$requete = "SELECT Salle.Nom_salle, Mesure.date, Mesure.horaire, Mesure.valeur FROM Mesure INNER JOIN Capteur ON Capteur.Nom_capt = Mesure.Nom_capt INNER JOIN Salle ON Salle.Nom_salle = Capteur.Nom_salle INNER JOIN Batiment ON Batiment.ID_bat = Salle.ID_bat WHERE Batiment.login_gest = '$username' ORDER BY Mesure.date, Mesure.horaire ;";
 
 			$resultat = mysqli_query($id_bd, $requete)
 					or die ("Ex&eacute;cution de la requête impossible : $requete");
-
-			//mysqli_close($id_bd);
+			mysqli_close($id_bd);
 
 			while($ligne=mysqli_fetch_array($resultat))
 				{
@@ -60,26 +56,8 @@
 					echo "<td> $ligne[3] </td>";
 					echo '</tr>';
 				}
-
-			echo '</table>';
-			echo '<p>';
-
-			$requete_metriques = "SELECT MAX(Mesure.valeur), MIN(Mesure.valeur), ROUND(AVG(Mesure.valeur), 2) FROM Mesure INNER JOIN Capteur ON Capteur.Nom_capt = Mesure.Nom_capt INNER JOIN Salle ON Salle.Nom_salle = Capteur.Nom_salle INNER JOIN Batiment ON Batiment.ID_bat = Salle.ID_bat WHERE Batiment.login_gest = '$username' AND Mesure.date >= DATE_ADD(CURDATE(), INTERVAL -$j DAY) AND Mesure.Nom_capt = '$capteur' ORDER BY Mesure.date, Mesure.horaire ;";
-
-			$resultat_metriques = mysqli_query($id_bd, $requete_metriques)
-					or die ("Ex&eacute;cution de la requête impossible : $requete_metriques");
-			mysqli_close($id_bd);
-
-			$ligne_metriques = mysqli_fetch_row($resultat_metriques);
-			echo 'Maximum : '.$ligne_metriques[0].' ppm';
-			echo '<br/>';
-			echo 'Minimum : '.$ligne_metriques[1].' ppm';
-			echo '<br/>';
-			echo 'Moyenne : '.$ligne_metriques[2].' ppm';
-
-			echo '</p>';
-
 		?>
+	</table>
 
     <hr />
     

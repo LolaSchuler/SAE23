@@ -25,3 +25,14 @@ AM107-13 capteur fait 2024-06-12 09:01:27
 AM107-26 capteur fait 2024-06-12 09:02:08
 AM107-35 capteur fait 2024-06-12 09:10:28
 AM107-8 capteur fait 2024-06-12 09:10:41
+AM107-35 capteur fait 2024-06-13 09:00:29
+AM107-8 capteur fait 2024-06-13 09:00:42
+AM107-13 capteur fait 2024-06-13 09:01:27
+AM107-26 capteur fait 2024-06-13 09:02:08
+AM107-35 capteur fait 2024-06-13 09:10:28
+AM107-8 capteur fait 2024-06-13 09:10:41
+AM107-13 capteur fait 2024-06-13 09:11:27
+AM107-26 capteur fait 2024-06-13 09:12:08
+AM107-35 capteur fait 2024-06-13 09:20:27
+AM107-8 capteur fait 2024-06-13 09:20:41
+AM107-13 capteur fait 2024-06-13 09:21:27

@@ -16,9 +16,9 @@
 
 <body>
     <header>
+    </header>
     	<h1>Consultation</h1>
     	<p>Ici, vous pouvez visualiser les dernières mesures efféctuée sur chaques salles.</p>
-    </header>
     	<?php
     		include ("mysql.php");
     		
@@ -54,7 +54,14 @@
     
     	
    		?>
-    <footer>
+
+    <hr />
+    
+    <p><a href="admin_formulaire.html"> Gestion de la base de données </a> (accès restreint) </p>
+    <p><a href="gestion_authentification.html"> Gestion des capteurs </a> (accès restreint) </p>
+    <p><a href="consultation.php"> Consultation des dernières valeurs </a></p>
+    <p><a href="gestion_projet.html"> Gestion de projet </a></p>
+    <p><a href="mentions.html"> Mentions légales </a></p>
     
     </footer>
 
