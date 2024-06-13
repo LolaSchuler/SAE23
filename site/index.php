@@ -57,12 +57,10 @@
     /*Affichage de la liste des bâtiments*/
     
     echo '<table>';
-    echo '<thead>';
     echo '<tr>';
     echo '<th> Bâtiment </th>';
     echo '<th> Nom du bâtiment </th>';
     echo '</tr>';
-    echo '</thead>';
 	while($ligne=mysqli_fetch_array($resultat))
 	{
 		extract($ligne);

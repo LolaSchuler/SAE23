@@ -4,7 +4,7 @@
 	if ($_SESSION["auth"]!=TRUE)
 		header("Location:erreur_login.php");
 
-	/* Récupération des valeurs */
+	// Récupération des valeurs
 
 	$supp=$_POST['supprimer'];
 	$ajout=$_POST['ajouter'];

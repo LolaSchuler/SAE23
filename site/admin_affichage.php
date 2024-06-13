@@ -37,15 +37,30 @@
 	$resultat = mysqli_query($id_bd, $requete)
 		or die("Ex&eacute;cution de la requete impossible");
 	
+	$requete2 = "DESCRIBE `$table`";
+	$resultat2 = mysqli_query($id_bd, $requete2)
+		or ("Location:erreur_execution.php");
+	
 	mysqli_close($id_bd);
     
     /*Affichage de la liste des bâtiments*/
     
     echo '<table>';
     echo '<tr>';
-    echo "<th> $titre </th>";
-    echo '<th> Nom du bâtiment </th>';
-    echo '</tr>';
+    
+    $k=true;
+	while ($ligne2=mysqli_fetch_array($resultat2))
+	{
+		extract($ligne2);
+		if ($k)
+		{
+			echo "<th> $ligne2[0] </th>";
+		}
+	}
+	
+	echo '</tr>';
+	
+	
 	while($ligne=mysqli_fetch_array($resultat))
 	{
 		extract($ligne);
@@ -65,7 +80,7 @@
     <footer>
     
     <p><a href="index.php"> Retour à la page d'accueil </a></p>
-    <p><a href="admin_choix_table.php"> Modifier une autre table </a></p>
+    <p><a href="admin_choix_table.html"> Modifier une autre table </a></p>
     
     </footer>
 
