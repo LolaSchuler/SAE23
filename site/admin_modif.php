@@ -1,7 +1,7 @@
 <?php 
 	session_start(); 
 	if ($_SESSION["auth"]!=TRUE)
-		header("Location:login_error.php");
+		header("Location:erreur_login.php");
 		
 	$type=$_POST['type'];
 ?>
@@ -81,6 +81,14 @@
 								or die("Ex&eacute;cution de la requete impossible");
 							mysqli_close($id_bd);
 							
+							$ligne2=mysqli_fetch_array($resultat2);
+							extract($ligne2);
+							$_SESSION['titre']=$ligne2[0];
+							echo "<p>
+										<label for \"valeur1\"> Valeur pour le champ \"$ligne2[0]\" : </label>
+										<input type=\"text\" name=\"valeur1\" id=\"valeur1\" />	
+									</p>";
+							
 							$j=true;		
 							while($ligne2=mysqli_fetch_array($resultat2))
 						 	{
@@ -90,8 +98,8 @@
 							 	{
 									echo "<p>
 											<label for \"$ligne2[0]\"> Valeur pour le champ \"$ligne2[0]\" : </label>
-											<input type=\"text\" name=\"$ligne2[0]\" id=\"$ligne2[0]\" />	
-										</p>"; /*Attention : supprime les variables valeur1, valeur2, ... --> A CORRIGER */
+											<input type=\"text\" name=\"$ligne2[0]\" id=\"$ligne2[0]\" />
+										</p>";	/* A REVOIR */
 							 	}
 							 }
 						?>

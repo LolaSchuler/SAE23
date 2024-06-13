@@ -24,6 +24,13 @@
     <?php 
     /* A modifier avec des variables */
     
+    session_start();
+	if ($_SESSION["auth"]!=TRUE)
+		header("Location:erreur_login.php");
+		
+	$titre=$_SESSION['titre'];
+	$table=$_SESSION['table'];
+		
     include ("mysql.php");
     
     $requete = "SELECT * FROM `Salle`"; 
@@ -35,18 +42,18 @@
     /*Affichage de la liste des bâtiments*/
     
     echo '<table>';
-    echo '<thead>';
     echo '<tr>';
-    echo '<th> Bâtiment </th>';
+    echo '<th> $titre </th>';
     echo '<th> Nom du bâtiment </th>';
     echo '</tr>';
-    echo '</thead>';
 	while($ligne=mysqli_fetch_array($resultat))
 	{
 		extract($ligne);
 		echo '<tr>';
 		echo "<th> $ligne[0] </th>";
 		echo "<th> $ligne[1] </th>";
+		echo "<th> $ligne[2] </th>";
+		echo "<th> $ligne[3] </th>";
 		echo '</tr>';
 	}
 	echo '</table>';

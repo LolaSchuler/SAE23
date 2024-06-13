@@ -1,4 +1,8 @@
 <?php
+	
+	session_start();
+	if ($_SESSION["auth"]!=TRUE)
+		header("Location:erreur_login.php");
 
 	/* Récupération des valeurs */
 
@@ -11,6 +15,8 @@
 	$valeur2=$_POST['valeur2'];
 	$valeur3=$_POST['valeur3'];
 	$valeur4=$_POST['valeur4'];
+	
+	$titre=$_SESSION['titre'];
 	
 
 	// Script d'exécution de la requête de modification de table
@@ -45,11 +51,13 @@
 				break;
 			}
 		}
-		elseif ($supp==1) 
+		elseif ($supp==1)
 		{
-			$requete2 = "DELETE FROM `$table` WHERE `???`=`$ligne`"; /* A compléter avec clé associative de la première colonne*/
+			$requete2 = "DELETE FROM `sae23`.`$table` WHERE `$table`.`$titre` = '$ligne'";
+			//"DELETE FROM `sae23`.`$table` WHERE `$table`.`$titre` = \'$ligne\'";
 			$resultat = mysqli_query($id_bd, $requete2)
 				or die("Execution de la requete impossible : $requete2");
+			echo "<script type='text/javascript'>document.location.replace('admin_affichage.php');</script>";
 		}
 		else
 		{
