@@ -34,21 +34,21 @@
 				$requete1 = "INSERT INTO `$table` (`ID_bat`, `nom`, `login_gest`, `MotPasse_gest`) 
 							VALUES ('$valeur1', '$valeur2', '$valeur3', '$valeur4')";
 				$resultat = mysqli_query($id_bd, $requete1)
-					or die("Execution de la requete impossible : $requete1"); /* Trouver un moyen d'afficher l'erreur */
+					or ("Location:erreur_execution.php");
 				echo "<script type='text/javascript'>document.location.replace('admin_affichage.php');</script>";
 				break;
 			case "Capteur":
 				$requete1 = "INSERT INTO `$table` (`Nom_capt`, `Type`, `Unite`, `Nom_salle`) 
 							VALUES ('$valeur1', '$valeur2', '$valeur3', '$valeur4')";
 				$resultat = mysqli_query($id_bd, $requete1)
-					or die("Execution de la requete impossible : $requete1");
+					or ("Location:erreur_execution.php");
 				echo "<script type='text/javascript'>document.location.replace('admin_affichage.php');</script>";
 				break;
 			case "Salle":
 				$requete1 = "INSERT INTO `$table` (`Nom_salle`, `Type`, `CapaciteAccueil`, `ID_bat`) 
 							VALUES ('$valeur1', '$valeur2', '$valeur3', '$valeur4')";
 				$resultat = mysqli_query($id_bd, $requete1)
-					or die("Execution de la requete impossible : $requete1");
+					or ("Location:erreur_execution.php");
 				echo "<script type='text/javascript'>document.location.replace('admin_affichage.php');</script>";
 				break;
 			}
@@ -56,9 +56,8 @@
 		elseif ($supp==1)
 		{
 			$requete2 = "DELETE FROM `sae23`.`$table` WHERE `$table`.`$titre` = '$ligne'";
-			//"DELETE FROM `sae23`.`$table` WHERE `$table`.`$titre` = \'$ligne\'";
 			$resultat = mysqli_query($id_bd, $requete2)
-				or die("Execution de la requete impossible : $requete2");
+				or ("Location:erreur_execution.php");
 			echo "<script type='text/javascript'>document.location.replace('admin_affichage.php');</script>";
 		}
 		else

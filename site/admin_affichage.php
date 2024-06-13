@@ -33,7 +33,7 @@
 		
     include ("mysql.php");
     
-    $requete = "SELECT * FROM `Salle`"; 
+    $requete = "SELECT * FROM `$table`"; 
 	$resultat = mysqli_query($id_bd, $requete)
 		or die("Ex&eacute;cution de la requete impossible");
 	

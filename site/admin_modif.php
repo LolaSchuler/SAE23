@@ -43,7 +43,7 @@
 						/* Sélection de la table choisie précédemment à l'aide de l'argument type */
 						$requete = "SELECT * FROM `$type`";
 						$resultat = mysqli_query($id_bd, $requete)
-							or die("Ex&eacute;cution de la requete impossible");
+							or die("Location:erreur_execution.php");
 						mysqli_close($id_bd);
 
 						$i=true;		
@@ -78,29 +78,21 @@
 							/* Sélection de la table choisie précédemment à l'aide de l'argument type */
 							$requete2 = "DESCRIBE `$type`";
 							$resultat2 = mysqli_query($id_bd, $requete2)
-								or die("Ex&eacute;cution de la requete impossible");
+								or die("Location:erreur_execution.php");
 							mysqli_close($id_bd);
 							
 							$ligne2=mysqli_fetch_array($resultat2);
-							extract($ligne2);
 							$_SESSION['titre']=$ligne2[0];
-							echo "<p>
-										<label for \"valeur1\"> Valeur pour le champ \"$ligne2[0]\" : </label>
-										<input type=\"text\" name=\"valeur1\" id=\"valeur1\" />	
-									</p>";
 							
-							$j=true;		
-							while($ligne2=mysqli_fetch_array($resultat2))
+							for($i = 1; $i <= 4; $i=$i+1)
 						 	{
 								extract($ligne2);
 								echo "<br />";
-								if ($j)
-							 	{
-									echo "<p>
-											<label for \"$ligne2[0]\"> Valeur pour le champ \"$ligne2[0]\" : </label>
-											<input type=\"text\" name=\"$ligne2[0]\" id=\"$ligne2[0]\" />
-										</p>";	/* A REVOIR */
-							 	}
+								$valeur="valeur".$i;
+								echo "<p>
+										<label for \"$valeur\"> Valeur pour le champ \"$ligne2[0]\" : </label>
+										<input type=\"text\" name=\"$valeur\" id=\"$valeur\" />
+									</p>";	/* A REVOIR pour les noms de type*/
 							 }
 						?>
 				
