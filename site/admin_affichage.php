@@ -3,7 +3,7 @@
 <head>
     <title>SAE23 - Espace Administrateur</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />						<!-- Pour bien gérer le RWD -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="CTL" />
     <meta name="description" content="Espace Administrateur" />
     <meta name="keywords" content="HTML, CSS" />
@@ -22,7 +22,6 @@
     <section>
     
     <?php 
-    /* A modifier avec des variables */
     
     session_start();
 	if ($_SESSION["auth"]!=TRUE)
@@ -46,16 +45,12 @@
     /*Affichage de la liste des bâtiments*/
     
     echo '<table>';
-    echo '<tr>';
+    echo '<tr class="titre">';
     
-    $k=true;
 	while ($ligne2=mysqli_fetch_array($resultat2))
 	{
 		extract($ligne2);
-		if ($k)
-		{
-			echo "<th> $ligne2[0] </th>";
-		}
+		echo "<th> $ligne2[0] </th>";
 	}
 	
 	echo '</tr>';
@@ -65,10 +60,10 @@
 	{
 		extract($ligne);
 		echo '<tr>';
-		echo "<th> $ligne[0] </th>";
-		echo "<th> $ligne[1] </th>";
-		echo "<th> $ligne[2] </th>";
-		echo "<th> $ligne[3] </th>";
+		echo "<td> $ligne[0] </td>";
+		echo "<td> $ligne[1] </td>";
+		echo "<td> $ligne[2] </td>";
+		echo "<td> $ligne[3] </td>";
 		echo '</tr>';
 	}
 	echo '</table>';

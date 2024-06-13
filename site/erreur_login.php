@@ -8,7 +8,7 @@
 <head>
     <title>Identification erron&eacute;e</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />						<!-- Pour bien gérer le RWD -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="CTL" />
     <meta name="description" content="Espace Administrateur" />
     <meta name="keywords" content="HTML, CSS" />
@@ -32,13 +32,14 @@
 	<h1>Accès administration et gestion : </h1>
 	<p><strong> /!\ Acc&egrave;s limit&eacute; aux personnes autoris&eacute;es /!\ </strong></p>
 			<br />
-			<p class="erreur">Mot de passe non saisi ou erron&eacute; !!!</p>
+			<p> Mot de passe non saisi ou erron&eacute; !!!</p>
 			<br />
 			<hr />
 		</section>
 		<footer>
 			<p><a href="index.php">Retour à la page d'accueil </a></p>
-			<!--<p><a href="admin_formulaire.html">Retour à l'authentification</a></p>-->
+			<p><a href="admin_formulaire.html">Retour à l'authentification (administrateur) </a></p>
+			<p><a href="gestion_authentification.html">Retour à l'authentification (gestionnaire) </a></p>
 		</footer>
 	</body>
 </html>

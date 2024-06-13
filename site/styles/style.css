@@ -1,0 +1,42 @@
+/*Présentation du tableau*/
+
+table, th, td {
+  border: 1px solid black;
+}
+
+table{
+	border-collapse: collapse;
+	margin: 25px;
+}
+
+.titre {
+	background-color: rgb(87, 86, 86);
+	color: white;
+	font-size: 1.1em;
+}
+
+td {
+	text-align: left;
+	padding: 5px;
+}
+
+tr:not(.titre) {		/*Les éléments de classe .titre sont exclus*/
+	text-align: left;
+	background-color: white;
+}
+
+tr:not(.titre):hover {
+	background-color: grey;
+	color: white;
+}
+
+th:not(.titre) {
+	padding: 10px;
+}
+
+
+/*Présentation du footer*/
+
+footer {
+	bottom : 0;
+}

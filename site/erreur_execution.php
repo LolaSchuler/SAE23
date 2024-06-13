@@ -7,7 +7,7 @@
 <head>
     <title>Requête erron&eacute;e</title>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />						<!-- Pour bien gérer le RWD -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="author" content="CTL" />
     <meta name="description" content="Espace Administrateur" />
     <meta name="keywords" content="HTML, CSS" />
@@ -25,7 +25,7 @@
 	<h1>Administration de la base : </h1>
 	<p><strong> /!\ Acc&egrave;s limit&eacute; aux personnes autoris&eacute;es /!\ </strong></p>
 			<br />
-			<p class="erreur"> Requête impossible !! <p>
+			<p> Requête impossible !! <p>
 			<p> Merci de refaire votre requête : <a href="admin_modif.php"> Retour </a></p>
 			<br />
 			<hr />

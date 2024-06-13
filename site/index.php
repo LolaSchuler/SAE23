@@ -44,6 +44,12 @@
     
     <h2> Affichage des bâtiments gérés </h2>
     
+    <table>
+    	<tr class="titre">
+    		<th> Bâtiment </th>
+    		<th> Nom du bâtiment </th>
+    	</tr>
+    
     <?php
     
     include ("mysql.php");
@@ -56,11 +62,6 @@
     
     /*Affichage de la liste des bâtiments*/
     
-    echo '<table>';
-    echo '<tr>';
-    echo '<th> Bâtiment </th>';
-    echo '<th> Nom du bâtiment </th>';
-    echo '</tr>';
 	while($ligne=mysqli_fetch_array($resultat))
 	{
 		extract($ligne);
@@ -69,9 +70,10 @@
 		echo "<th> $ligne[1] </th>";
 		echo '</tr>';
 	}
-	echo '</table>';
     
     ?>
+    
+    </table>
     
     <p> Attention : Pour des raisons de sécurité, nous avons choisi de ne pas afficher le nom des gestionnaires des bâtiments. </p>
     
@@ -81,6 +83,13 @@
     <section>
     
     <h2> Affichage des salles équipées </h2>
+        
+    <table>
+    	<tr class="titre">
+    	<th> Nom de salle </th>
+    	<th> Type de salle </th>
+    	<th> Capacité de la salle </th>
+    	</tr>
     
     <?php
     
@@ -93,15 +102,7 @@
 	mysqli_close($id_bd);
     
     /*Affichage de la liste des salles*/
-    
-    echo '<table>';
-    echo '<thead>';
-    echo '<tr>';
-    echo '<th> Nom de salle </th>';
-    echo '<th> Type de salle </th>';
-    echo "<th> Capacité d'accueil de la salle </th>";
-    echo '</tr>';
-    echo '</thead>';
+
 	while($ligne=mysqli_fetch_array($resultat))
 	{
 		extract($ligne);
@@ -111,9 +112,10 @@
 		echo "<th> $ligne[2] personnes </th>";
 		echo '</tr>';
 	}
-	echo '</table>';
     
     ?>
+    
+    </table>
     
     </section>
     
@@ -123,7 +125,6 @@
     <hr />
     
 	<footer>
-		<p><a href="index.php"> Retour à la page d'accueil </a></p>
 		<p><a href="admin_formulaire.html"> Gestion de la base de données </a> (accès restreint) </p>
 		<p><a href="gestion_authentification.html"> Gestion des capteurs </a> (accès restreint) </p>
 		<p><a href="consultation.php"> Consultation des dernières valeurs </a></p>

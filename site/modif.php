@@ -6,13 +6,13 @@
 
 	// Récupération des valeurs
 
-	$supp=$_POST['supprimer'];
-	$ajout=$_POST['ajouter'];
-	$ligne=$_POST['ligne'];
-	
 	$_SESSION['table']=$_POST['table'];
 	$table=$_SESSION['table'];
 	
+	$supp=$_POST['supprimer'];
+	$ligne=$_POST['ligne'];
+	
+	$ajout=$_POST['ajouter'];
 	$valeur1=$_POST['valeur1'];
 	$valeur2=$_POST['valeur2'];
 	$valeur3=$_POST['valeur3'];
@@ -55,7 +55,7 @@
 		}
 		elseif ($supp==1)
 		{
-			$requete2 = "DELETE FROM `sae23`.`$table` WHERE `$table`.`$titre` = '$ligne'";
+			$requete2 = "DELETE FROM `sae23`.`$table` WHERE `$table`.`$titre` = '$ligne'";		//REMPLACER TITRE PAR COL
 			$resultat = mysqli_query($id_bd, $requete2)
 				or ("Location:erreur_execution.php");
 			echo "<script type='text/javascript'>document.location.replace('admin_affichage.php');</script>";

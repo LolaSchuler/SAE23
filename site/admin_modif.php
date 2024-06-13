@@ -26,7 +26,7 @@
 				<fieldset>
 					<legend> Supprimer une ligne </legend>
 					<label for="type"><strong> Souhaitez-vous supprimer une ligne ? </strong></label>
-					<input type="hidden" name="table" value="<?php echo $type ?>" id ="type" />
+					<input type="hidden" name="table" value="<?php echo $type ?>" id ="type" />			//UTILISER SESSION
 					<br />
 					<input type="radio" name="supprimer" value="1" id ="supprimer" />
 					<label for="supprimer"> Oui </label>
