@@ -20,13 +20,12 @@
 	<body>
 
 <section>
-<br />
 
 	<h1>Administration de la base : </h1>
 	<p><strong> /!\ Acc&egrave;s limit&eacute; aux personnes autoris&eacute;es /!\ </strong></p>
 			<br />
 			<p> Requête impossible !! <p>
-			<p> Merci de refaire votre requête : <a href="admin_modif.php"> Retour </a></p>
+			<p> Merci de refaire votre requête : <a href="admin_choix_table.php"> Retour </a></p>
 			<br />
 			<hr />
 </section>

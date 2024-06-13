@@ -23,7 +23,7 @@
     
     <h2> Objectif du site </h2>
         
-    <p> Dans le prolongement de la sae 15, qui était individuelle, cette SAE correspond à une solution plus large que dutraitement de données simple. </p>
+    <p> Dans le prolongement de la sae 15, qui était individuelle, cette SAE correspond à une solution plus large que du simple traitement de données. </p>
     
     <p> Lors de la SAE 23, "Mettre en place une solution informatique pour l'entreprise", il nous a été demandé de développer une solution informatique ayant pour but de centraliser des données issues de capteurs. Plus que cela, nous devions aussi offrir une interface homme-machine (IHM) qui devait permettre à un utilisateur de pouvoir effectuer des modifications sur la base de données. </p>
 
