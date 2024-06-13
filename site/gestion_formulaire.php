@@ -66,7 +66,7 @@
 
 			<p>
 				Durée  :
-				<input type="radio" name="duree" value="1" id="1_jour" /><label for="1_jour">1 jour</label>
+				<input type="radio" name="duree" value="1" id="1_jour" checked/><label for="1_jour">1 jour</label>
 				<input type="radio" name="duree" value="5" id="5_jours" /><label for="5_jours">5 jours</label>
 				<input type="radio" name="duree" value="10" id="10_jours" /><label for="10_jours">10 jours</label>
 			</p>
