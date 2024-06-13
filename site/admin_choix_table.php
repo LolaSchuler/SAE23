@@ -1,61 +1,45 @@
 <?php 
 	session_start(); 
 	if ($_SESSION["auth"]!=TRUE)
-		header("Location:login_error.php");
+		header("Location:erreur_login.php");
 ?>
 
 <!DOCTYPE html>
-<!-- PAS FINI
-Programme originel: choix_type.php
-Description: Affiche pour sélection la liste des types de pièces proposées, à partir de la table Type
--->
 <html lang="fr">
 	<head>
 		<meta charset="UTF-8" />
 		<title>Choix de la table à modifier</title>
-		<link rel="stylesheet" type="text/css" href="./styles/smi.css" />
+		<link rel="stylesheet" type="text/css" href="./styles/style.css" />
 	</head>
 
 	<body>
 		<section>
 			<br />
-			<form action="admin_batiment.php" method="post" enctype="multipart/form-data"> <!-- Reprendre script nouvellepiece.php -->
+			<form action="admin_modif.php" method="post" enctype="multipart/form-data">
 				<fieldset class="gauche">
 					<legend>Choisissez la table à modifier</legend>
-					<?php
-						/* Accès à la base */
-						include ("mysql.php");
-
-						/* Sélection des différents bâtiments présents dans la table Batiment */
-						$requete = "SELECT * FROM `Batiment` ORDER BY `ID_bat`";
-						$resultat = mysqli_query($id_bd, $requete)
-							or die("Ex&eacute;cution de la requete impossible");
-						mysqli_close($id_bd);
-
-						$i=true;		
-						while($ligne=mysqli_fetch_array($resultat))
-						 {
-							extract($ligne);
-							echo "<br />";
-							if ($i)
-							 {
-								echo '<input type="radio" name="type" value="'.$CodeType.'" id ="'.$CodeType.'" checked="checked" /> ' ;
-								/* CodeType = valeur définie dans admin_batiment.php */
-								echo '<label for="'.$CodeType.'"><strong>'.$LibelleType.'</strong></label><br />';
-								$i=false;
-							 }
-							else
-							 {
-								echo '<input type="radio" name="type" value="'.$CodeType.'" id ="'.$CodeType.'" /> ' ;
-								echo '<label for="'.$CodeType.'"><strong>'.$LibelleType.'</strong></label><br />';
-							 }  
-						 } 
-					?>
+						<input type="radio" name="type" value="Batiment" id ="Batiment" checked="checked" />
+						<label for="Batiment"><strong> Table "Bâtiment" </strong></label><br />
+						<input type="radio" name="type" value="Capteur" id ="Capteur" />
+						<label for="Capteur"><strong> Table "Capteur" </strong></label><br />
+						<input type="radio" name="type" value="Salle" id ="Salle" />
+						<label for="Salle"><strong> Table "Salle" </strong></label><br />
 				</fieldset>
 				<div class="valid">
 					<input type="submit" value="Faites votre choix" />
 				</div>
 			</form>
 		</section>
+		
+    <hr />
+    
+    <p><a href="admin_formulaire.html"> Gestion de la base de données </a> (accès restreint) </p>
+    <p><a href="gestion_authentification.html"> Gestion des capteurs </a> (accès restreint) </p>
+    <p><a href="consultation.php"> Consultation des dernières valeurs </a></p>
+    <p><a href="gestion_projet.html"> Gestion de projet </a></p>
+    <p><a href="mentions.html"> Mentions légales </a></p>
+    
+    </footer>
+		
 	</body>
 </html>

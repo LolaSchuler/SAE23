@@ -1,8 +1,3 @@
-<?php
-	// Démarrage de la session
-	session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -20,19 +15,11 @@
 
 <body>
     <header>
-		<nav>
-			<ul>
-				<li><a href="./index.html">Accueil</a></li>
-				<li><a href="./consultation.html">Consultation</a></li>
-				<li><a href="./admin_authentification.html">Espace Administrateur</a></li>
-				<li><a href="./gestion_authentification.html">Espace Gestionnaires</a></li>
-			</ul>
-		</nav>
     </header>
    
 	<h1>Connexion à votre espace gestionnaire</h1>
 
-	<form name="gestion_auth" action="./gestion_formulaire.html" method="post">
+	<form name="gestion_auth" action="./login_gestionnaires.php" method="post">
 		<fieldset>
 			<legend>Authentification</legend>
 			<p>
@@ -44,9 +31,19 @@
 				<input type="text" name="mdp" id="mdp" />
 			</p>
 		</fieldset>
+		<p>
+			<input type="submit" value="Valider" />
+		</p>
 	</form>
 
-    <footer>
+    <hr />
+    
+    <p><a href="admin_formulaire.html"> Gestion de la base de données </a> (accès restreint) </p>
+    <p><a href="gestion_authentification.html"> Gestion des capteurs </a> (accès restreint) </p>
+    <p><a href="consultation.php"> Consultation des dernières valeurs </a></p>
+    <p><a href="gestion_projet.html"> Gestion de projet </a></p>
+    <p><a href="mentions.html"> Mentions légales </a></p>
+    
     </footer>
 
 </body>

@@ -16,9 +16,9 @@
 
 <body>
     <header>
+    </header>
     	<h1>Consultation</h1>
     	<p>Ici, vous pouvez visualiser les dernières mesures efféctuée sur chaques salles.</p>
-    </header>
     	<?php
     		include ("mysql.php");
     		
@@ -43,18 +43,25 @@
 				{
 					extract($ligne);
 					echo '<tr>';
-					echo "<th> $ligne[6] </th>";
-					echo "<th> $ligne[5] </th>";
-					echo "<th> $ligne[3] </th>";
-					echo "<th> $ligne[7] </th>";
-					echo "<th> $ligne[2] </th>";
+					echo "<td> $ligne[6] </td>";
+					echo "<td> $ligne[5] </td>";
+					echo "<td> $ligne[3] </td>";
+					echo "<td> $ligne[7] </td>";
+					echo "<td> $ligne[2] </td>";
 					echo '</tr>';
 				}
 				echo '</table>';
     
     	
    		?>
-    <footer>
+
+    <hr />
+    
+    <p><a href="admin_formulaire.html"> Gestion de la base de données </a> (accès restreint) </p>
+    <p><a href="gestion_authentification.html"> Gestion des capteurs </a> (accès restreint) </p>
+    <p><a href="consultation.php"> Consultation des dernières valeurs </a></p>
+    <p><a href="gestion_projet.html"> Gestion de projet </a></p>
+    <p><a href="mentions.html"> Mentions légales </a></p>
     
     </footer>
 

@@ -15,18 +15,25 @@
 
 <body>
     <header>
-    <h1> Affichage de la table <h1>
+    <h1> Affichage de la table </h1>
     <p> La table a bien été modifiée ! </p>
     </header>
     
     <section>
     
-    <?php
+    <?php 
+    /* A modifier avec des variables */
     
+    session_start();
+	if ($_SESSION["auth"]!=TRUE)
+		header("Location:erreur_login.php");
+		
+	$titre=$_SESSION['titre'];
+	$table=$_SESSION['table'];
+		
     include ("mysql.php");
     
-    $requete = "SELECT * FROM `Batiment`"; 
-    /*Comment faire pour afficher la table qui vient d'être modifiée sans créer 20 scripts ? */
+    $requete = "SELECT * FROM `$table`"; 
 	$resultat = mysqli_query($id_bd, $requete)
 		or die("Ex&eacute;cution de la requete impossible");
 	
@@ -35,18 +42,18 @@
     /*Affichage de la liste des bâtiments*/
     
     echo '<table>';
-    echo '<thead>';
     echo '<tr>';
-    echo '<th> Bâtiment </th>';
+    echo "<th> $titre </th>";
     echo '<th> Nom du bâtiment </th>';
     echo '</tr>';
-    echo '</thead>';
 	while($ligne=mysqli_fetch_array($resultat))
 	{
 		extract($ligne);
 		echo '<tr>';
 		echo "<th> $ligne[0] </th>";
 		echo "<th> $ligne[1] </th>";
+		echo "<th> $ligne[2] </th>";
+		echo "<th> $ligne[3] </th>";
 		echo '</tr>';
 	}
 	echo '</table>';
@@ -58,6 +65,7 @@
     <footer>
     
     <p><a href="index.php"> Retour à la page d'accueil </a></p>
+    <p><a href="admin_choix_table.php"> Modifier une autre table </a></p>
     
     </footer>
 

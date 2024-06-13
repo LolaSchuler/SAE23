@@ -26,7 +26,7 @@
 		 	{
 				$_SESSION["auth"]=TRUE;		
             	mysqli_close($id_bd);
-				echo "<script type='text/javascript'>document.location.replace('admin_choix_table.php');</script>";
+				echo "<script type='text/javascript'>document.location.replace('admin_choix_table.html');</script>";
 		 	}
 		}
 		else
