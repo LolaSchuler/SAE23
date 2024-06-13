@@ -9,17 +9,24 @@
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
-		<meta charset="UTF-8" />
-		<title> Modification de la table <?php echo $type ?> </title>
-		<link rel="stylesheet" type="text/css" href="./styles/style.css" />
+    	<title>SAE23 - Gestion de projet</title>
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1" />
+    	<meta name="author" content="CTL" />
+    	<meta name="description" content="Gestion de projet" />
+    	<meta name="keywords" content="HTML, CSS" />
+    	<link rel="preconnect" href="https://fonts.googleapis.com">
+    	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    	<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300&display=swap" rel="stylesheet">
+    	<link rel="stylesheet" type="text/css" href="./styles/style.css" media="screen" />
 	</head>
 
 	<body>
 	
-	<header>
-	<h1> Administration de la base </h1>
-	<h2> Table à modifier : <?php echo $type ?> </h2>
-	</header>
+		<header>
+			<h1> Administration de la base </h1>
+			<h2> Table à modifier : <?php echo $type ?> </h2>
+		</header>
 	
 		<section> 
 			<br />
@@ -119,7 +126,7 @@
 		
 		<footer>
 			<p><a href="index.php">Retour à la page d'accueil</a></p>
-			<p><a href="admin_choix_table.html">Retour au choix de la table</a></p>
+			<p><a href="admin_choix_table.php">Retour au choix de la table</a></p>
 		</footer>
 		
 	</body>

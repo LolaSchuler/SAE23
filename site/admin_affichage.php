@@ -70,7 +70,7 @@
 	echo '</table>';
     
     ?>
-    <p><a href="admin_choix_table.html"> Modifier une autre table </a></p>
+    <p><a href="admin_choix_table.php"> Modifier une autre table </a></p>
 
     </section>
 

@@ -91,9 +91,14 @@ form {
 	font-family: Lexend;
 }
 
+fieldset {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
 legend {
 	font-size: 20px;
-	padding: 5px;
+	padding: 10px;
 }
 
 strong {

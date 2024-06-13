@@ -9,24 +9,16 @@
     <meta name="keywords" content="HTML, CSS" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300&display=swap" rel="stylesheet">		<!-- Pour avoir Lexend si on veut.... -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./styles/style.css" media="screen" />
 </head>
 
 <body>
-    <header>
-    </header>
 
-	<h1>Gestion de projet</h1>
+	<header>
+		<h1>Gestion de projet</h1>
+	</header>
 
-	<!-- TRUCS À METTRE :
-		- GANTT INITIAL -> FINAL (chloé fait le javascript si elle a le temps)
-		- CAPTURES D'ÉCRAN DES OUTILS COLLABORATIFS UTILISÉS
-		- SYNTHÈSE PERSONNELLE DE CHAQUE MEMBRE DU GROUPE SUR LE TRAVAIL PRÉCIS RÉALISÉ
-		- PROBLÈMES RENCONTRÉS + SOLUTIONS PROPOSÉES
-		- CONCLUSION SUR LE DEGRÉ DE SATISFACTION DU CAHIER DES CHARGES -->
-
-	<!--  Mise en contexte  -->
 	<p>
 		Dans le cadre de la SAE 23, nous avons du mobiliser nos compétences en informatique pour concevoir deux solutions de traitement de données. Nous avons choisi de traiter les données des capteurs de CO2 situés dans les salles B002, B105, E003, et E105.
 	</p>
@@ -197,19 +189,15 @@ Cependant, j’ai choisi de conserver les deux méthodes réparties sur les page
 
 		<ol>
 			<li>
-				pb grafana
+				Nous avons rencontré un problème avec les conteneurs qui nous a obligé à changer notre répartition du travail. En effet, après avoir copié la VM de Timothée (sur laquelle étaient installés les conteneurs InfluxDB et NodeRed) sur la machine de Lola, nous avons rencontrés des problèmes avec le remplissage via le flux NodeRed de la base de données InfluxDB. Comme nous avions peur de manquer de temps avant le rendu des livrables 2 et 3 (les conteneurs), nous avons préféré re-répartir le travail : Lola, qui était initialement chargée du conteneur Grafana, en a confié la réalisation à Timothée, car les conteneurs fonctionnaient comme prévu sur sa VM à lui.
 			</li>
 			<br/>
 			<li>
-				pbs vm + pb version vmware
+				Nous avons rencontré d'autres problèmes, plus divers avec les machines virtuelles. Nous avons décidé de tout d'abord créer une machine virtuelle sur laquelle Chloé a installé et configuré la base de données MySQL, puis nous avons fait des copies de cette VM afin que nous disposions tous d'une machine virtuelle viable. Divers problèmes en rapport avec les machines virtuelles se sont cependant posés tout au long du projet : l'une des trois machines virtuelles ne cessait de planter, le terminal d'une autre disparaissait si tôt qu'on bougeait la fenêtre, etc. Comme il s'agissait de problèmes difficilement corrigeables en peu de temps, nous avons tout simplement appris à faire avec.
 			</li>
 			<br/>
 			<li>
-				pb crontab
-			</li>
-			<br/>
-			<li>
-				pb garder le username du gestionnaire d'une page à l'autre --> session
+				Enfin, au sein de la partie Gestionnaires du site web, Lola a rencontré un problème en particulier ; elle a eu du mal à conserver la variable $username d'une page à l'autre de la partie Gestionnaires. La solution a été de simplement stocker la variable dans les données de session de l'utilisateur, ce qui permet de conserver les variables tout au long de la session.
 			</li>
 		</ol>
 	</section>
@@ -218,7 +206,7 @@ Cependant, j’ai choisi de conserver les deux méthodes réparties sur les page
 	<section>
 		<h2>Conclusion sur le degré de satisfaction du cahier des charges</h2>
 		<p>
-			Blah blah blah
+			Nous sommes satisfaits du travail accompli et estimons avoir rempli le cahier des charges, sans particulièrement le dépasser pour autant ; l'ensemble des solutions proposées fonctionnent.
 		</p>
 	</section>
 

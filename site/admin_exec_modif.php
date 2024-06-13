@@ -62,7 +62,7 @@
 		}
 		else
 		{
-			echo "<script type='text/javascript'>document.location.replace('admin_choix_table.html');</script>";
+			echo "<script type='text/javascript'>document.location.replace('admin_choix_table.php');</script>";
 		}
 		
  ?>
