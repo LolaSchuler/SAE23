@@ -24,7 +24,8 @@
 		- CAPTURES D'ÉCRAN DES OUTILS COLLABORATIFS UTILISÉS
 		- SYNTHÈSE PERSONNELLE DE CHAQUE MEMBRE DU GROUPE SUR LE TRAVAIL PRÉCIS RÉALISÉ
 		- PROBLÈMES RENCONTRÉS + SOLUTIONS PROPOSÉES
-		- CONCLUSION SUR LE DEGRÉ DE SATISFACTION DU CAHIER DES CHARGES -->
+		- CONCLUSION SUR LE DEGRÉ DE SATISFACTION DU CAHIER DES CHARGES
+		- RAJOUTER QUELQUE PART LE CHOIX DES CAPTEURS ET DE LA MESURE PRISE -->
 
 	<!--  Mise en contexte  -->
 	<p>Dans le cadre de la SAE 23, nous avons du mobiliser nos compétences en informatique pour concevoir deux solutions de traitement de données. Nous avons choisi de traiter les données des capteurs de CO2 situés dans les salles B002, B105, E003, et E105.<br/>
@@ -92,7 +93,7 @@
 
 		<article>
 			<h3>Chloé</h3>
-			<p> BLA BLA BLA
+			<p>
 			</p>
 		</article>
 
@@ -105,13 +106,37 @@
 		<article>
 			<h3>Lola</h3>
 			<p>
+				Je me suis occupée en premier lieu des scripts en Bash pour récupérer et traiter les données provenant des capteurs et mises à disposition sur le bus MQTT de l'IUT. J'ai tout d'abord conçu un script de récupération des données en m'inspirant du script que j'avais écrit pour la SAE15, à la fin du premier semestre. Ensuite, j'ai écris un script d'insertion des données dans la base de données MySQL. Après avoir validé séparément le fonctionnement de ces deux scripts avec des capteurs et des valeurs aléatoires, j'ai appliqué leur fonctionnement aux quatre capteurs que nous avons choisi.
+			</p>
+			<p>
+				Mon premier choix a été de réaliser quatre scripts différents, un pour chaque capteur étudié. J'avais un script qui lançait tous les autres scripts tour à tour, comme je l'avais fait pour la SAE15. Mon premier script récupérait donc de la base de données MySQL la liste des capteurs dans la table Capteur, et la stockait dans un fichier texte. Le script suivant (qui s'appelait e003_data_extraction), retirait de ce fichier texte le nom du capteur de la salle E003 et récupérait du broker MQTT le message de ce capteur, avant d'appeler le script d'insertion des données en passant la valeur générée par le capteur et le nom du capteur en argument. Les trois autres salles que nous avons choisies avaient chacune leur script, qui fonctionnaient de la même façon. Le dernier script, celui d'insertion des données, exécutait simplement une requête SQL pour insérer dans la base de données une nouvelle ligne dans la table Mesure, en fonction de la valeur de l'argument.
+			</p>
+			<p>
+				J'ai finalement trouvé cette méthode très peu efficace, puisqu'elle nécessitait un grand nombre de fichiers et s'adaptait très mal : en effet, la partie Administration du site web est censée permettre à un utilisateur de rajouter un capteur de son choix ; or, il faut dans ce cas que les mesures données par le nouveau capteur s'affichent dans la table Mesure. J'ai donc totalement changé l'organisation de mes scripts pour les optimiser au mieux et améliorer leur adaptabilité.
+			</p>
+			<p>
+				Ma nouvelle solution
 			</p>
 		</article>
 
 	</section>
 
 	<section>
-		<h2>Problèmes rencontrés</h2>
+		<h2>Problèmes rencontrés et solutions proposées</h2>
+
+		<ol>
+			<li>
+				pb grafana
+			</li>
+			<br/>
+			<li>
+				pbs vm + pb version vmware
+			</li>
+			<br/>
+			<li>
+				pb crontab
+			</li>
+		</ol>
 	</section>
 
 
