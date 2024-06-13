@@ -18,5 +18,3 @@ TABLE='Mesure'
 #sends the newly formatted data to the SQL table
 /opt/lampp/bin/mysql --user=$DB_USER --password=$DB_PASSWD $DB_NAME -se "INSERT INTO $TABLE (Nom_capt, valeur, date, horaire) VALUES ('$1', '$valeur', '$date', '$horaire')"
 
-#TEST À SUPPRIMER APRÈS
-echo "$1 capteur fait $date $horaire" >> ./test.txt

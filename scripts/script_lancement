@@ -8,7 +8,7 @@ DB_NAME='sae23';
 
 
 #SQL request ; result is stored in a file
-liste=$(../../../../../../opt/lampp/bin/mysql --user=$DB_USER --password=$DB_PASSWD $DB_NAME -se "SELECT Nom_capt From Capteur")
+liste=$(/opt/lampp/bin/mysql --user=$DB_USER --password=$DB_PASSWD $DB_NAME -se "SELECT Nom_capt From Capteur")
 
 
 echo $liste | sed 's/ /\n/g' > ./capteurs

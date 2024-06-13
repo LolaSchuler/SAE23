@@ -1,6 +1,8 @@
 <?php
 	// Démarrage de la session
 	session_start();
+	if ($_SESSION["auth"]!=TRUE)
+		header("Location:erreur_login.php");
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +42,7 @@
 			/* Accès à la base */
 			include ("mysql.php");
 
-			$requete = "SELECT Salle.Nom_salle, Mesure.date, Mesure.horaire, Mesure.valeur FROM Mesure INNER JOIN Capteur ON Capteur.Nom_capt = Mesure.Nom_capt INNER JOIN Salle ON Salle.Nom_salle = Capteur.Nom_salle INNER JOIN Batiment ON Batiment.ID_bat = Salle.ID_bat WHERE Batiment.login_gest = '$username' ORDER BY Mesure.date, Mesure.horaire ;";
+			$requete = "SELECT Salle.Nom_salle, Mesure.date, Mesure.horaire, Mesure.valeur FROM Mesure INNER JOIN Capteur ON Capteur.Nom_capt = Mesure.Nom_capt INNER JOIN Salle ON Salle.Nom_salle = Capteur.Nom_salle INNER JOIN Batiment ON Batiment.ID_bat = Salle.ID_bat WHERE Batiment.login_gest = '$username' ORDER BY Mesure.date DESC, Mesure.horaire DESC ;";
 
 			$resultat = mysqli_query($id_bd, $requete)
 					or die ("Ex&eacute;cution de la requête impossible : $requete");
@@ -61,12 +63,13 @@
 
     <hr />
     
-    <p><a href="admin_formulaire.html"> Gestion de la base de données </a> (accès restreint) </p>
-    <p><a href="gestion_authentification.html"> Gestion des capteurs </a> (accès restreint) </p>
-    <p><a href="consultation.php"> Consultation des dernières valeurs </a></p>
-    <p><a href="gestion_projet.html"> Gestion de projet </a></p>
-    <p><a href="mentions.html"> Mentions légales </a></p>
-    
+	<footer>
+		<p><a href="index.php"> Retour à la page d'accueil </a></p>
+		<p><a href="admin_formulaire.html"> Gestion de la base de données </a> (accès restreint) </p>
+		<p><a href="gestion_authentification.html"> Gestion des capteurs </a> (accès restreint) </p>
+		<p><a href="consultation.php"> Consultation des dernières valeurs </a></p>
+		<p><a href="gestion_projet.html"> Gestion de projet </a></p>
+		<p><a href="mentions.html"> Mentions légales </a></p>
     </footer>
 
 </body>

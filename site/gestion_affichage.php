@@ -1,6 +1,8 @@
 <?php
 	// Démarrage de la session
 	session_start();
+	if ($_SESSION["auth"]!=TRUE)
+		header("Location:erreur_login.php");
 ?>
 
 <!DOCTYPE html>
@@ -48,8 +50,6 @@
 			$resultat = mysqli_query($id_bd, $requete)
 					or die ("Ex&eacute;cution de la requête impossible : $requete");
 
-			//mysqli_close($id_bd);
-
 			while($ligne=mysqli_fetch_array($resultat))
 				{
 					extract($ligne);
@@ -64,18 +64,20 @@
 			echo '</table>';
 			echo '<p>';
 
-			$requete_metriques = "SELECT MAX(Mesure.valeur), MIN(Mesure.valeur), ROUND(AVG(Mesure.valeur), 2) FROM Mesure INNER JOIN Capteur ON Capteur.Nom_capt = Mesure.Nom_capt INNER JOIN Salle ON Salle.Nom_salle = Capteur.Nom_salle INNER JOIN Batiment ON Batiment.ID_bat = Salle.ID_bat WHERE Batiment.login_gest = '$username' AND Mesure.date >= DATE_ADD(CURDATE(), INTERVAL -$j DAY) AND Mesure.Nom_capt = '$capteur' ORDER BY Mesure.date, Mesure.horaire ;";
+			$requete_metriques = "SELECT MAX(Mesure.valeur), MIN(Mesure.valeur), ROUND(AVG(Mesure.valeur), 2) FROM Mesure INNER JOIN Capteur ON Capteur.Nom_capt = Mesure.Nom_capt INNER JOIN Salle ON Salle.Nom_salle = Capteur.Nom_salle INNER JOIN Batiment ON Batiment.ID_bat = Salle.ID_bat WHERE Batiment.login_gest = '$username' AND Mesure.date >= DATE_ADD(CURDATE(), INTERVAL -$j DAY) AND Mesure.Nom_capt = '$capteur' ;";
 
 			$resultat_metriques = mysqli_query($id_bd, $requete_metriques)
 					or die ("Ex&eacute;cution de la requête impossible : $requete_metriques");
 			mysqli_close($id_bd);
 
 			$ligne_metriques = mysqli_fetch_row($resultat_metriques);
-			echo 'Maximum : '.$ligne_metriques[0].' ppm';
+			echo '<ul>';
+			echo '<li>Maximum : '.$ligne_metriques[0].' ppm</li>';
 			echo '<br/>';
-			echo 'Minimum : '.$ligne_metriques[1].' ppm';
+			echo '<li>Minimum : '.$ligne_metriques[1].' ppm</li>';
 			echo '<br/>';
-			echo 'Moyenne : '.$ligne_metriques[2].' ppm';
+			echo '<li>Moyenne : '.$ligne_metriques[2].' ppm</li>';
+			echo '</ul>';
 
 			echo '</p>';
 
@@ -83,12 +85,13 @@
 
     <hr />
     
-    <p><a href="admin_formulaire.html"> Gestion de la base de données </a> (accès restreint) </p>
-    <p><a href="gestion_authentification.html"> Gestion des capteurs </a> (accès restreint) </p>
-    <p><a href="consultation.php"> Consultation des dernières valeurs </a></p>
-    <p><a href="gestion_projet.html"> Gestion de projet </a></p>
-    <p><a href="mentions.html"> Mentions légales </a></p>
-    
+	<footer>
+		<p><a href="index.php"> Retour à la page d'accueil </a></p>
+		<p><a href="admin_formulaire.html"> Gestion de la base de données </a> (accès restreint) </p>
+		<p><a href="gestion_authentification.html"> Gestion des capteurs </a> (accès restreint) </p>
+		<p><a href="consultation.php"> Consultation des dernières valeurs </a></p>
+		<p><a href="gestion_projet.html"> Gestion de projet </a></p>
+		<p><a href="mentions.html"> Mentions légales </a></p>
     </footer>
 
 </body>

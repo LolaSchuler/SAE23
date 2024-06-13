@@ -29,7 +29,7 @@
 <section>
 <br />
 
-	<h1>Administration de la base : </h1>
+	<h1>Accès administration et gestion : </h1>
 	<p><strong> /!\ Acc&egrave;s limit&eacute; aux personnes autoris&eacute;es /!\ </strong></p>
 			<br />
 			<p class="erreur">Mot de passe non saisi ou erron&eacute; !!!</p>
@@ -38,7 +38,7 @@
 		</section>
 		<footer>
 			<p><a href="index.php">Retour à la page d'accueil </a></p>
-			<p><a href="admin_formulaire.html">Retour à l'authentification</a></p>
+			<!--<p><a href="admin_formulaire.html">Retour à l'authentification</a></p>-->
 		</footer>
 	</body>
 </html>
