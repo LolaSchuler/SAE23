@@ -43,7 +43,7 @@
     
     echo '<table>';
     echo '<tr>';
-    echo '<th> $titre </th>';
+    echo "<th> $titre </th>";
     echo '<th> Nom du bâtiment </th>';
     echo '</tr>';
 	while($ligne=mysqli_fetch_array($resultat))

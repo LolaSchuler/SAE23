@@ -9,7 +9,9 @@
 	$supp=$_POST['supprimer'];
 	$ajout=$_POST['ajouter'];
 	$ligne=$_POST['ligne'];
-	$table=$_POST['table'];
+	
+	$_SESSION['table']=$_POST['table'];
+	$table=$_SESSION['table'];
 	
 	$valeur1=$_POST['valeur1'];
 	$valeur2=$_POST['valeur2'];
