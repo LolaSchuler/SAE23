@@ -37,13 +37,13 @@
 				Nous nous sommes répartis les différentes tâches en prenant en compte nos préférences mais aussi la charge de travail que chaque tâche représentait.
 			</p>
 			<p>
-				Ainsi, Chloé s'est chargée de la conception de la base de données et de la partie Administration du site web, ainsi que des pages d'accueil et de mentions légales.
+				Ainsi, Chloé FOURMAN s'est chargée de la conception de la base de données et de la partie Administration du site web, ainsi que des pages d'accueil et de mentions légales.
 			</p>
 			<p>
-				Lola s'est chargée des scripts Bash et de la partie Gestionnaires du site web, ainsi que de la page Gestion de projet.
+				Lola SCHULER s'est chargée des scripts Bash et de la partie Gestionnaires du site web, ainsi que de la page Gestion de projet.
 			</p>
 			<p>
-				Quant à Timothée, il s'est chargé des flow et dashboards Nodered et Grafana, ainsi que de la page Consultation du site web.
+				Quant à Timothée SENDRA, il s'est chargé des flow et dashboards Nodered et Grafana, ainsi que de la page Consultation du site web.
 			</p>
 			<br/>
 			<p>
@@ -51,7 +51,9 @@
 			</p>
 
 			<figure>
-				<img src="./images/gantt_prev.jpg" alt="Gantt prévisionnel" title="Gantt prévisionnel"/>
+				<a href="./images/gantt_prev.jpg" download>
+				<img src="./images/gantt_prev.jpg" alt="Gantt prévisionnel" title="Gantt prévisionnel"/> 
+				</a>
 				<figcaption>Gantt prévisionnel</figcaption>
 			</figure>
 
@@ -60,9 +62,15 @@
 			</p>
 
 			<figure>
+				<a href="./images/gantt_final.jpg" download>
 				<img src="./images/gantt_final.jpg" alt="Gantt final" title="Gantt final"/>
+				</a>
 				<figcaption>Gantt final</figcaption>
 			</figure>
+
+			<p>
+			<!-- Ajouter comparaison entre les deux GANTT -->
+			</p>
 
 		</section>
 
@@ -72,23 +80,28 @@
 			<h2>Outils collaboratifs utilisés</h2>
 			<p>
 				Pour pouvoir travailler efficacement nous nous sommes aidés de plusieurs outils collaboratifs qui nous ont aidé à nous organiser ainsi qu'à mettre en commun notre travail :
+			</p>
 				<ul>
 					<li>Github, afin de partager notre travail et de garder trace de notre travail effectué tout au long du projet</li>
 					<li>Google Drive, afin de se partager et d'organiser les fichiers de brouillon ou de préparation du projet</li>
 					<li>Trello, qui nous a permis de visualiser facilement les tâches faites et celles à faire</li>
 				</ul>
-			</p>
-			<img
 			<figure>
+				<a href="./images/github.jpg" download>	
 				<img src="./images/github.jpg" alt="Interface GitHub" title="Interface GitHub"/>
+				</a>
 				<figcaption>Interface Github</figcaption>
 			</figure>
 			<figure>
+				<a href="./images/drive.jpg" download>	
 				<img src="./images/drive.jpg" alt="Interface Google Drive" title="Interface Google Drive"/>
+				</a>
 				<figcaption>Interface Google Drive</figcaption>
 			</figure>
 			<figure>
+				<a href="./images/trello.jpg" download>	
 				<img src="./images/trello.jpg" alt="Interface Trello" title="Interface Trello"/>
+				</a>
 				<figcaption>Interface Trello</figcaption>
 			</figure>
 		</section>
@@ -101,7 +114,7 @@
 			<br/>
 
 			<article>
-				<h3>Chloé</h3>
+				<h3>Chloé FOURMAN</h3>
 				<p>
 					Lors de cette SAE, j’ai choisi de principalement m’occuper de la partie gestion de base de données. Ainsi, j’ai créé et initialisé la base de données sur PHPMyAdmin et je me suis occupée des pages “Administration”.
 				</p>
@@ -121,7 +134,7 @@
 				<p>
 					De plus, j’ai choisi de définir plusieurs valeurs communes notamment pour pouvoir conserver le nom de la table modifiée, les lignes à supprimer ou bien à ajouter, …
 				</p>
-				</p>
+				<p>
 					Pour ce faire, j’ai commencé par utiliser des méthodes POST, mais je me suis vite retrouvée limitée puisqu’il fallait systématiquement des formulaires avec des variables cachées afin de pouvoir transférer les données à la page suivante. Ainsi, j’ai commencé à utiliser des variables contenues dans la session, ce qui était bien plus simple.
 				</p>
 				<p>
@@ -138,7 +151,7 @@
 			<br/>
 
 			<article>
-				<h3>Timothée</h3>
+				<h3>Timothée SENDRA</h3>
 				<p>
 					Au cours de cette SAE, j’ai pu travailler sur plusieurs sujets. J’ai été chargé de créer des conteneurs Docker, tâche que j’ai pu accomplir assez facilement grâce au TP formatif qui était très utile.
 				</p>
@@ -149,7 +162,7 @@
 					Suite à cela, j’ai pu créer le flow Node-RED dans lequel j’ai récupéré des données sur le broker Mosquitto pour les traiter et extraire uniquement les valeurs de CO2 qui se trouvaient dans un tableau à deux cases. J’ai donc dû écrire un script dans un bloc “fonction” pour trier les différentes données du capteur et ne récupérer que la valeur de CO2 que nous voulions traiter. Par la suite, mon travail a consisté à utiliser InfluxDB pour stocker les données récupérées dans le flow Node-RED dans la base de données InfluxDB.
 				</p>
 				<p>
-					J’ai aussi pris en charge Grafana, tâche qui devait initialement être réalisée par Lola, mais qui a rencontré un problème avec sa VM et n’a donc pas pu le faire. Le Grafana avait pour but de créer un affichage similaire à celui que nous avions sur le dashboard Node-RED (sous forme de jauge) mais en récupérant les informations depuis la base de données InfluxDB.
+					J’ai aussi pris en charge Grafana, tâche qui devait initialement être réalisée par Lola SCHULER, mais qui a rencontré un problème avec sa VM et n’a donc pas pu le faire. Le Grafana avait pour but de créer un affichage similaire à celui que nous avions sur le dashboard Node-RED (sous forme de jauge) mais en récupérant les informations depuis la base de données InfluxDB.
 				</p>
 				<p>
 					Enfin, j’ai réalisé une des pages du site web : la page de consultation, qui avait pour objectif d'afficher les dernières mesures de chaque capteur traitées de façon horodatée.
@@ -160,7 +173,7 @@
 			<br/>
 
 			<article>
-				<h3>Lola</h3>
+				<h3>Lola SCHULER</h3>
 				<p>
 					Je me suis occupée en premier lieu des scripts en Bash pour récupérer et traiter les données provenant des capteurs et mises à disposition sur le bus MQTT de l'IUT.
 				</p>
@@ -192,11 +205,11 @@
 				</p>
 				<br/>
 				<p>
-					J'étais également chargée de la réalisation du dashboard Grafana. Seulement, après avoir récupéré une copie de la VM de Timothée, qui s'était occupé du flow NodeRed et de la base de données InfluxDB, nous nous sommes rendus compte que la base de données InfluxDB ne se remplissait pas correctement sur ma VM. Après avoir tenté de corriger le problème le temps d'une séance de SAE, nous avons décidé de ne pas perdre plus de temps, et j'ai finalement également confié à Timothée la réalisation du dashboard Grafana, puisque le flux NodeRed et la base de données InfluxDB fonctionnaient sur sa VM.
+					J'étais également chargée de la réalisation du dashboard Grafana. Seulement, après avoir récupéré une copie de la VM de Timothée SENDRA, qui s'était occupé du flow NodeRed et de la base de données InfluxDB, nous nous sommes rendus compte que la base de données InfluxDB ne se remplissait pas correctement sur ma VM. Après avoir tenté de corriger le problème le temps d'une séance de SAE, nous avons décidé de ne pas perdre plus de temps, et j'ai finalement également confié à Timothée SENDRA la réalisation du dashboard Grafana, puisque le flux NodeRed et la base de données InfluxDB fonctionnaient sur sa VM.
 				</p>
 				<br/>
 				<p>
-					Enfin, je me suis chargée de la partie Gestionnaires du site web. Pour la réaliser, je me suis inspirée du site SMI sur lequel nous avions travaillé en R209, ainsi que de la partie Administration du site web, que Chloé avait déjà bien avancée quand je me suis attaquée à la partie Gestionnaires.
+					Enfin, je me suis chargée de la partie Gestionnaires du site web. Pour la réaliser, je me suis inspirée du site SMI sur lequel nous avions travaillé en R209, ainsi que de la partie Administration du site web, que Chloé FOURMAN avait déjà bien avancée quand je me suis attaquée à la partie Gestionnaires.
 				</p>
 			</article>
 
@@ -207,15 +220,15 @@
 
 			<ol>
 				<li>
-					Nous avons rencontré un problème avec les conteneurs qui nous a obligé à changer notre répartition du travail. En effet, après avoir copié la VM de Timothée (sur laquelle étaient installés les conteneurs InfluxDB et NodeRed) sur la machine de Lola, nous avons rencontrés des problèmes avec le remplissage via le flux NodeRed de la base de données InfluxDB. Comme nous avions peur de manquer de temps avant le rendu des livrables 2 et 3 (les conteneurs), nous avons préféré re-répartir le travail : Lola, qui était initialement chargée du conteneur Grafana, en a confié la réalisation à Timothée, car les conteneurs fonctionnaient comme prévu sur sa VM à lui.
+					Nous avons rencontré un problème avec les conteneurs qui nous a obligé à changer notre répartition du travail. En effet, après avoir copié la VM de Timothée SENDRA (sur laquelle étaient installés les conteneurs InfluxDB et NodeRed) sur la machine de Lola SCHULER, nous avons rencontrés des problèmes avec le remplissage via le flux NodeRed de la base de données InfluxDB. Comme nous avions peur de manquer de temps avant le rendu des livrables 2 et 3 (les conteneurs), nous avons préféré re-répartir le travail : Lola SCHULER, qui était initialement chargée du conteneur Grafana, en a confié la réalisation à Timothée SENDRA, car les conteneurs fonctionnaient comme prévu sur sa VM à lui.
 				</li>
 				<br/>
 				<li>
-					Nous avons rencontré d'autres problèmes, plus divers avec les machines virtuelles. Nous avons décidé de tout d'abord créer une machine virtuelle sur laquelle Chloé a installé et configuré la base de données MySQL, puis nous avons fait des copies de cette VM afin que nous disposions tous d'une machine virtuelle viable. Divers problèmes en rapport avec les machines virtuelles se sont cependant posés tout au long du projet : l'une des trois machines virtuelles ne cessait de planter, le terminal d'une autre disparaissait si tôt qu'on bougeait la fenêtre, etc. Comme il s'agissait de problèmes difficilement corrigeables en peu de temps, nous avons tout simplement appris à faire avec.
+					Nous avons rencontré d'autres problèmes, plus divers avec les machines virtuelles. Nous avons décidé de tout d'abord créer une machine virtuelle sur laquelle Chloé FOURMAN a installé et configuré la base de données MySQL, puis nous avons fait des copies de cette VM afin que nous disposions tous d'une machine virtuelle viable. Divers problèmes en rapport avec les machines virtuelles se sont cependant posés tout au long du projet : l'une des trois machines virtuelles ne cessait de planter, le terminal d'une autre disparaissait si tôt qu'on bougeait la fenêtre, etc. Comme il s'agissait de problèmes difficilement corrigeables en peu de temps, nous avons tout simplement appris à faire avec.
 				</li>
 				<br/>
 				<li>
-					Enfin, au sein de la partie Gestionnaires du site web, Lola a rencontré un problème en particulier ; elle a eu du mal à conserver la variable $username d'une page à l'autre de la partie Gestionnaires. La solution a été de simplement stocker la variable dans les données de session de l'utilisateur, ce qui permet de conserver les variables tout au long de la session.
+					Enfin, au sein de la partie Gestionnaires du site web, Lola SCHULER a rencontré un problème en particulier ; elle a eu du mal à conserver la variable $username d'une page à l'autre de la partie Gestionnaires. La solution a été de simplement stocker la variable dans les données de session de l'utilisateur, ce qui permet de conserver les variables tout au long de la session.
 				</li>
 			</ol>
 		</section>
@@ -226,6 +239,33 @@
 			<p>
 				Nous sommes satisfaits du travail accompli et estimons avoir rempli le cahier des charges, sans particulièrement le dépasser pour autant ; l'ensemble des solutions proposées fonctionnent.
 			</p>
+			<p> Concrètement, voici un récapitulatif du cahier des charges accompagné de ce que nous avons fait : </p>
+			<table>
+				<tr class="titre">
+					<th> Cahier des charges </th> <th> Manque dans notre travail </th> <th> Accompli </th> 
+				</tr>
+				<tr>
+					<th> "Mettre en place une chaîne de traitement via des conteneurs." </th> <th> ☐ </th> <th> ☑ </th> 
+				</tr>
+				<tr>
+					<th> "Créer un dashboard Grafana complet." </th> <th> ☐ </th> <th> ☑ </th>
+				</tr>
+				<tr>
+					<th> "Coder un site web dynamique sur un serveur lampp." </th> <th> ☐ </th> <th> ☑ </th> 
+				</tr>
+				<tr>
+					<th> "Coder un script récupérant les données sur un bus MQTT <br />
+					(langage au choix : bash, php, C, python,. . .)." </th>
+					<th> ☐ </th> <th> ☑ </th> 
+				</tr>
+				<tr>
+					<th> "Créer et gérer une base de données MySQL." </th> <th> ☐ </th> <th> ☑ </th>
+				</tr>
+				<tr>
+					<th> "Automatiser la chaîne de traitement (scripts dans crontab)." </th> <th> ☐ </th> <th> ☑ </th>
+				</tr>
+			</table>
+		
 		</section>
 
 
