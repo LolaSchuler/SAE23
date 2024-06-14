@@ -125,8 +125,8 @@
 		<footer>
 			<nav>
 				<ul>
-					<li><a href="admin_formulaire.html"> Gestion de la base de données </a> (accès restreint) </li>
-					<li><a href="gestion_authentification.html"> Gestion des capteurs </a> (accès restreint) </li>
+					<li><a href="admin_formulaire.html"> Espace Administration </a> (accès restreint) </li>
+					<li><a href="gestion_authentification.html"> Espace gestionnaire </a> (accès restreint) </li>
 					<li><a href="consultation.php"> Consultation des dernières valeurs </a></li>
 					<li><a href="gestion_projet.html"> Gestion de projet </a></li>
 					<li><a href="mentions.html"> Mentions légales </a></li>

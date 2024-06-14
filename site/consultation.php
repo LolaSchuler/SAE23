@@ -21,13 +21,13 @@
     	<?php
     		include ("mysql.php");
     		
-    		/* $requete = " SELECT * FROM `Mesure` ORDER BY `date` DESC, `horaire` DESC INNER JOIN Capteur ON Mesure.Nom_capt = Capteur.Nom_capt;"; */
+    				/* SQL REQUEST */
     			$requete = " SELECT * FROM `Capteur` INNER JOIN Mesure ON Capteur.Nom_capt = Mesure.Nom_capt ORDER BY Mesure.date DESC, Mesure.horaire DESC LIMIT 4;";
     		$resultat = mysqli_query($id_bd, $requete)
     			or die("Ex&eacute;cution de la requete impossible");
     		
     		mysqli_close($id_bd);
-    
+    			 	/* Creation of the table */
     		    echo '<table>';
     			echo '<thead>';
     			echo '<tr class="titre">';
@@ -40,7 +40,11 @@
     			echo '</thead>';
 				while($ligne=mysqli_fetch_array($resultat))
 				{
+				
+					/* Extracting every row */
 					extract($ligne);
+					
+					/* Measures insertion in the table */
 					echo '<tr>';
 					echo "<td> $ligne[6] </td>";
 					echo "<td> $ligne[5] </td>";
@@ -59,7 +63,7 @@
 			<nav>
 				<ul>
 					<li><a href="admin_formulaire.html"> Espace Administration </a> (accès restreint) </li>
-					<li><a href="gestion_authentification.html"> Espace Gestionnaire</a> (accès restreint) </li>
+					<li><a href="gestion_authentification.html"> Espace gestionnaire </a> (accès restreint) </li>
 					<li><a href="consultation.php"> Consultation des dernières valeurs </a></li>
 					<li><a href="gestion_projet.html"> Gestion de projet </a></li>
 					<li><a href="mentions.html"> Mentions légales </a></li>
