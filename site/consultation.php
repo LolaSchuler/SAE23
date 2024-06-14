@@ -1,22 +1,21 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <title>SAE23 - Espace Consultation</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />						<!-- Pour bien gérer le RWD -->
-    <meta name="author" content="CTL" />
-    <meta name="description" content="Espace Consultation" />
-    <meta name="keywords" content="HTML, CSS" />
-    <meta http-equiv="refresh" content="300">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300&display=swap" rel="stylesheet">		<!-- Pour avoir Lexend si on veut.... -->
-    <link rel="stylesheet" type="text/css" href="./styles/style.css" media="screen" />
-</head>
+	<head>
+    	<title>SAE23 - Espace Consultation</title>
+    	<meta charset="utf-8">
+    	<meta name="viewport" content="width=device-width, initial-scale=1" />
+    	<meta name="author" content="CTL" />
+    	<meta name="description" content="Espace Consultation" />
+    	<meta name="keywords" content="HTML, CSS" />
+    	<meta http-equiv="refresh" content="300">
+    	<link rel="preconnect" href="https://fonts.googleapis.com">
+    	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    	<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300&display=swap" rel="stylesheet">
+    	<link rel="stylesheet" type="text/css" href="./styles/style.css" media="screen" />
+	</head>
 
-<body>
-    <header>
-    </header>
+	<body>
+
     	<h1>Consultation</h1>
     	<p>Ici, vous pouvez visualiser les dernières mesures effectuée sur chaque salle.</p>
     	<?php
@@ -51,19 +50,22 @@
 					echo '</tr>';
 				}
 				echo '</table>';
-    
     	
    		?>
 
-    <hr />
+    	<hr />
 
-	<footer>
-		<p><a href="index.php"> Retour à la page d'accueil </a></p>
-		<p><a href="admin_formulaire.html"> Administration de la base de données </a> (accès restreint) </p>
-		<p><a href="gestion_authentification.html"> Gestion des capteurs </a> (accès restreint) </p>
-		<p><a href="gestion_projet.html"> Gestion de projet </a></p>
-		<p><a href="mentions.html"> Mentions légales </a></p>
-    </footer>
+		<footer>
+			<nav>
+				<ul>
+					<li><a href="admin_formulaire.html"> Espace Administration </a> (accès restreint) </li>
+					<li><a href="gestion_authentification.html"> Espace Gestionnaire</a> (accès restreint) </li>
+					<li><a href="consultation.php"> Consultation des dernières valeurs </a></li>
+					<li><a href="gestion_projet.html"> Gestion de projet </a></li>
+					<li><a href="mentions.html"> Mentions légales </a></li>
+				</ul>
+			</nav>
+    	</footer>
 
-</body>
+	</body>
 </html>
