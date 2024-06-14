@@ -15,12 +15,13 @@
 
 <body>
     <header>
-    <h1> Administration de la base </h1>
-    <h2> Affichage de la table </h2>
-    <p> La table a bien été modifiée ! </p>
+    <h1> Espace administrateur </h1>
     </header>
     
     <section>
+
+    <h2> Affichage de la table </h2>
+    <p> La table a bien été modifiée ! </p>
     
     <?php 
     
@@ -77,12 +78,15 @@
 	<hr/>
 
 	<footer>
-		<p><a href="index.php"> Retour à la page d'accueil </a></p>
-		<p><a href="admin_formulaire.html"> Administration de la base de données </a> (accès restreint) </p>
-		<p><a href="gestion_authentification.html"> Gestion des capteurs </a> (accès restreint) </p>
-		<p><a href="consultation.php"> Consultation des dernières valeurs </a></p>
-		<p><a href="gestion_projet.html"> Gestion de projet </a></p>
-		<p><a href="mentions.html"> Mentions légales </a></p>
+		<nav>
+			<ul>
+				<li><a href="index.php"> Retour à la page d'accueil </a></li>
+				<li><a href="gestion_authentification.html"> Espace gestionnaire </a> (accès restreint) </li>
+				<li><a href="consultation.php"> Consultation des dernières valeurs </a></li>
+				<li><a href="gestion_projet.html"> Gestion de projet </a></li>
+				<li><a href="mentions.html"> Mentions légales </a></li>
+			</ul>
+		</nav>
     </footer>
 
 </body>

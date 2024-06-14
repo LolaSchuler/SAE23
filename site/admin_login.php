@@ -18,13 +18,13 @@
 		$requete = "SELECT `login_admin`, `MotPasse_admin` FROM `Administration`";
 		$resultat = mysqli_query($id_bd, $requete)
 			or die("Execution de la requete impossible : $requete");
-
+ 
 		$ligne = mysqli_fetch_row($resultat);
 		if ($username==$ligne[0])
 		 {
 			if ($motpasse==$ligne[1])
 		 	{
-				$_SESSION["auth"]=TRUE;		
+				$_SESSION["auth"]=TRUE;
             	mysqli_close($id_bd);
 				echo "<script type='text/javascript'>document.location.replace('admin_choix_table.php');</script>";
 		 	}
