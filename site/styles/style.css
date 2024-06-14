@@ -113,9 +113,27 @@ img {
 	max-width: 100%;
 }
 
-figure {
+.outils {
+	display: flex;
+	flex-direction: row;
+	vertical-align: center;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.outils p {
+	width: 30%;
+}
+
+.outils figure {
 	padding-top: 20px;
 	padding-bottom: 20px;
+	max-width: 50%;
+	float: right;
+}
+
+.calendrier {
+	padding: 30px;
 }
 
 figcaption {
