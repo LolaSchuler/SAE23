@@ -25,15 +25,14 @@
 	
 	<header>
 		<h1> Espace administrateur </h1>
-		<h2> Table à modifier : <?php echo $type ?> </h2>
 	</header>
 	
 	<section> 
 		<br />
 		<form action="admin_exec_modif.php" method="post" enctype="multipart/form-data">
 			<fieldset>
-				<legend> Supprimer une ligne </legend>
-				<label for="type"><strong> Souhaitez-vous supprimer une ligne ? </strong></label>
+				<legend> Supprimer un(e) <?php echo $type ?> </legend>
+				<label for="type"><strong> Souhaitez-vous effectuer cette action ? </strong></label>
 				<input type="hidden" name="table" value="<?php echo $type ?>" id ="type" />
 				<br />
 				<input type="radio" name="supprimer" value="1" id ="supprimer" />
@@ -41,7 +40,7 @@
 				<input type="radio" name="supprimer" value="0" id ="supprimer" checked />
 				<label for="supprimer"> Non </label>
 				<br />
-				<label for="ligne"> <strong> Quelle ligne modifier ? </strong> </label>
+				<label for="ligne"> <strong> Que voulez-vous supprimer ? </strong> </label>
 				<select id="ligne" name="ligne">
 
 				<?php
@@ -54,15 +53,11 @@
 							or ("Location:erreur_execution.php");
 						mysqli_close($id_bd);
 
-						$i=true;
 						while($ligne=mysqli_fetch_array($resultat))
 						 {
 							extract($ligne);
 							echo "<br />";
-							if ($i)
-							 {
-								echo "<option value=\"$ligne[0]\"> $ligne[0] </option>";
-							 }
+							echo "<option value=\"$ligne[0]\"> $ligne[0] </option>";
 						 } 
 					?>
 					
@@ -71,8 +66,8 @@
 			</fieldset>
 				
 			<fieldset>
-				<legend> Ajouter une ligne </legend>
-					<label for="ajout"><strong> Voulez-vous ajouter une ligne ? </strong></label>
+				<legend> Ajouter un(e) <?php echo $type ?> </legend>
+					<label for="ajout"> <strong> Souhaitez-vous effectuer cette action ? </strong> </label>
 					<input type="hidden" name="ajout" id ="ajout" />
 					<input type="radio" name="ajouter" value="1" id ="ajouter" />
 					<label for="ajouter"> Oui </label>
@@ -89,28 +84,24 @@
 							or die("Location:erreur_execution.php");
 						mysqli_close($id_bd);
 						
-						$ligne2=mysqli_fetch_array($resultat2);
-						$_SESSION['titre']=$ligne2[0];
-						
 						$j=0;
 							
-						$k=true;
-						while ($ligne3=mysqli_fetch_array($resultat2))
+						while ($ligne2=mysqli_fetch_array($resultat2))
 						{
-							extract($ligne3);
-							if ($k)
+							extract($ligne2);
+							if ($j==0)
 							{
-								$j=$j+1;
-								$valeur="valeur".$j;
-								echo "<br />";
-								echo "<p>
-										<label for \"$valeur\"> Valeur pour le champ \"$ligne3[0]\" : </label>
-										<input type=\"text\" name=\"$valeur\" id=\"$valeur\" />
-									</p>";
+								$_SESSION['titre']=$ligne2[0];
 							}
-						 }
-							 
-							 //$_SESSION['titre']=$ligne2[0];
+							$j=$j+1;
+							$valeur="valeur".$j;
+							echo "<br />";
+							echo "<p>
+									<label for \"$valeur\"> Quel(le) $ligne2[0] : </label>
+									<input type=\"text\" name=\"$valeur\" id=\"$valeur\" />
+								</p>";
+						}
+
 					?>
 				
 			</fieldset>

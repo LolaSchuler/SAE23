@@ -10,6 +10,8 @@
 
 	if(empty($username) & empty($motpasse))
 		header("Location:erreur_login.php");
+	elseif(empty($username) | empty($motpasse))
+		header("Location:erreur_login.php");
 	else
      {
 		/* Accès à la base */
