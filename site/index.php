@@ -30,7 +30,7 @@
 			<br/>
 
     		<p> Les compétences mobilisées lors de cette SAE correspondent à : </p>
-   			 <ul>
+   			<ul>
     			<li> Savoir programmer des scripts en Bash </li>
     			<li> Utilisation et gestion de conteneurs </li>
     			<li> Ecrire un site Web dynamique (et donc utilisation du HTML5, CSS3 et de PHP) </li>
