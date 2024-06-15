@@ -18,12 +18,13 @@
     	<link rel="stylesheet" type="text/css" href="./styles/style.css" media="screen" />
 	</head>
 
+	<!-- Authentication error page -->
+
 	<body>
-		<!-- Affichage entete -->
 		<?php 
-			$_SESSION = array(); // Réinitialisation du tableau de session
-			session_destroy();   // Destruction de la session
-			unset($_SESSION);    // Destruction du tableau de session
+			$_SESSION = array(); // Resets the SESSION table
+			session_destroy();   // Destroys the session
+			unset($_SESSION);    // Destroys the SESSION table
 		?>
 
 		<section>

@@ -1,6 +1,7 @@
 <?php
-	// Démarrage de la session
+	// Session start
 	session_start();
+	// Verifies that there is indeed an ongoing session ; if not, redirects the user to an error page
 	if ($_SESSION["auth"]!=TRUE)
 		header("Location:erreur_login.php");
 ?>
@@ -20,6 +21,8 @@
    		<link rel="stylesheet" type="text/css" href="./styles/style.css" media="screen" />
 	</head>
 
+	<!-- Page that shows the result of what the Building Manager chose to see on the last page -->
+
 	<body>
 			<h1>Espace Gestionnaire</h1>
 
@@ -36,17 +39,20 @@
 
 			<?php
 				$username=$_SESSION['login'];
-				/* Accès à la base */
+				/* Access to the database*/
 				include ("mysql.php");
 
+				// Gets the duration and the sensor that the Building Manager chose on the form
 				$j=$_POST['duree'];
 				$capteur=$_POST['capteur'];
 
+				// SQL request to get the data the Building Manager asked for, depending on the sensor and the duration that he chose
 				$requete = "SELECT Salle.Nom_salle, Mesure.date, Mesure.horaire, Mesure.valeur FROM Mesure INNER JOIN Capteur ON Capteur.Nom_capt = Mesure.Nom_capt INNER JOIN Salle ON Salle.Nom_salle = Capteur.Nom_salle INNER JOIN Batiment ON Batiment.ID_bat = Salle.ID_bat WHERE Batiment.login_gest = '$username' AND Mesure.date > DATE_SUB(CURDATE(), INTERVAL $j DAY) AND Mesure.Nom_capt = '$capteur' ORDER BY Mesure.date DESC, Mesure.horaire DESC ;";
 
 				$resultat = mysqli_query($id_bd, $requete)
-					or die ("Ex&eacute;cution de la requête impossible : $requete");
+					or ("Location:erreur_execution.php");
 
+				// Gets one line from the SQL request's result at a time and puts it in a table
 				while($ligne=mysqli_fetch_array($resultat))
 					{
 						extract($ligne);
@@ -61,12 +67,14 @@
 			echo '</table>';
 			echo '<p>';
 
+			// SQL request to get the metrics on the data that is shown in the table
 			$requete_metriques = "SELECT MAX(Mesure.valeur), MIN(Mesure.valeur), ROUND(AVG(Mesure.valeur), 2) FROM Mesure INNER JOIN Capteur ON Capteur.Nom_capt = Mesure.Nom_capt INNER JOIN Salle ON Salle.Nom_salle = Capteur.Nom_salle INNER JOIN Batiment ON Batiment.ID_bat = Salle.ID_bat WHERE Batiment.login_gest = '$username' AND Mesure.date >= DATE_ADD(CURDATE(), INTERVAL -$j DAY) AND Mesure.Nom_capt = '$capteur' ;";
 
 			$resultat_metriques = mysqli_query($id_bd, $requete_metriques)
-					or die ("Ex&eacute;cution de la requête impossible : $requete_metriques");
+					or ("Location:erreur_execution.php");
 			mysqli_close($id_bd);
 
+			// Displays the result from the SQL metrics request
 			$ligne_metriques = mysqli_fetch_row($resultat_metriques);
 			echo '<ul>';
 				echo '<li>Maximum : '.$ligne_metriques[0].' ppm</li>';
@@ -85,6 +93,7 @@
 		<footer>
 			<nav>
 				<ul>
+					<li><a href="index.php"> Retour à la page d'accueil </a></li>
 					<li><a href="admin_formulaire.html"> Espace Administration </a> (accès restreint) </li>
 					<li><a href="gestion_authentification.html"> Espace Gestionnaire</a> (accès restreint) </li>
 					<li><a href="consultation.php"> Consultation des dernières valeurs </a></li>

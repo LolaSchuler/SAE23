@@ -1,6 +1,7 @@
 <?php
-	// Démarrage de la session
+	// Session start
 	session_start();
+	// Verifies that there is indeed an ongoing session ; if not, redirects the user to an error page
 	if ($_SESSION["auth"]!=TRUE)
 		header("Location:erreur_login.php");
 ?>
@@ -20,6 +21,8 @@
     	<link rel="stylesheet" type="text/css" href="./styles/style.css" media="screen" />
 	</head>
 
+	<!-- Page that displays all the data collected by the sensors in the logged-in manager's building -->
+
 	<body>
 
 		<h1>Espace Gestionnaire</h1>
@@ -36,16 +39,19 @@
 			</tr>
 
 			<?php
+				// Gets the name of the logged-in Building Manager from the SESSION array
 				$username=$_SESSION['login'];
-				/* Accès à la base */
+				/* Access to the database */
 				include ("mysql.php");
 
+				// SQL request to get all of the data from the Manager's building's sensors
 				$requete = "SELECT Salle.Nom_salle, Mesure.date, Mesure.horaire, Mesure.valeur FROM Mesure INNER JOIN Capteur ON Capteur.Nom_capt = Mesure.Nom_capt INNER JOIN Salle ON Salle.Nom_salle = Capteur.Nom_salle INNER JOIN Batiment ON Batiment.ID_bat = Salle.ID_bat WHERE Batiment.login_gest = '$username' ORDER BY Mesure.date DESC, Mesure.horaire DESC ;";
 
 				$resultat = mysqli_query($id_bd, $requete)
-					or die ("Ex&eacute;cution de la requête impossible : $requete");
+					or ("Location:erreur_execution.php");
 				mysqli_close($id_bd);
 
+				// Displays the SQL request's results in a table
 				while($ligne=mysqli_fetch_array($resultat))
 					{
 						extract($ligne);
@@ -64,6 +70,7 @@
 		<footer>
 			<nav>
 				<ul>
+					<li><a href="index.php"> Retour à la page d'accueil </a></li>
 					<li><a href="admin_formulaire.html"> Espace Administration </a> (accès restreint) </li>
 					<li><a href="gestion_authentification.html"> Espace Gestionnaire</a> (accès restreint) </li>
 					<li><a href="consultation.php"> Consultation des dernières valeurs </a></li>

@@ -17,6 +17,8 @@
     	<link rel="stylesheet" type="text/css" href="./styles/style.css" media="screen" />
 	</head>
 
+	<!-- SQL request error page -->
+
 	<body>
 		<section>
 

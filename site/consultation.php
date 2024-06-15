@@ -24,7 +24,7 @@
     				/* SQL REQUEST */
     			$requete = " SELECT * FROM `Capteur` INNER JOIN Mesure ON Capteur.Nom_capt = Mesure.Nom_capt ORDER BY Mesure.date DESC, Mesure.horaire DESC LIMIT 4;";
     		$resultat = mysqli_query($id_bd, $requete)
-    			or die("Ex&eacute;cution de la requete impossible");
+    			or ("Location:erreur_execution.php");
     		
     		mysqli_close($id_bd);
     			 	/* Creation of the table */
@@ -57,17 +57,17 @@
     	
    		?>
 
-		<p> Vous pouvez acceder au dashboard node-red en clicquant <a href="http://localhost:1880/ui/#!/0?socketid=B13ipgP7KA3L2twRAAAB"> ici </a> </p>
-		<p> Vous pouvez aussi acceder au grafan en clicquant <a href="http://localhost:3000"> ici </a>
+		<p> Vous pouvez accéder au dashboard Node-Red <a href="http://localhost:1880/ui/#!/0?socketid=B13ipgP7KA3L2twRAAAB"> en cliquant ici.</a> </p>
+		<p> Vous pouvez également accéder au dashboard Grafana <a href="http://localhost:3000"> en cliquant ici.</a></p>
 
     	<hr />
 
 		<footer>
 			<nav>
 				<ul>
+					<li><a href="index.php"> Retour à la page d'accueil </a></li>
 					<li><a href="admin_formulaire.html"> Espace Administration </a> (accès restreint) </li>
 					<li><a href="gestion_authentification.html"> Espace gestionnaire </a> (accès restreint) </li>
-					<li><a href="consultation.php"> Consultation des dernières valeurs </a></li>
 					<li><a href="gestion_projet.html"> Gestion de projet </a></li>
 					<li><a href="mentions.html"> Mentions légales </a></li>
 				</ul>

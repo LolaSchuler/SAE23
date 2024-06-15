@@ -1,6 +1,7 @@
 <?php
-	// Démarrage de la session
+	// Session start
 	session_start();
+	// Verifies that there is indeed an ongoing session ; if not, redirects the user to an error page
 	if ($_SESSION["auth"]!=TRUE)
 		header("Location:erreur_login.php");
 ?>
@@ -20,6 +21,8 @@
     	<link rel="stylesheet" type="text/css" href="./styles/style.css" media="screen" />
 	</head>
 
+	<!-- Form for the building manager to choose the sensor whose measurements he wants to see and for what duration -->
+
 	<body>
 		<h1>Espace Gestionnaire</h1>
 
@@ -29,18 +32,20 @@
 				<legend>Veuillez choisir un capteur ainsi qu'une durée :</legend>
 
 				<?php
-					$username=$_GET['login'];
-					$_SESSION['login'] = $username;
-					/* Accès à la base */
+					// To get the login used in the authentication form which was stocked in the session
+					$username=$_SESSION["login"];
+
+					/* Access to the database */
 					include ("mysql.php");
 
 					echo '<p>';
-					/* Sélectionner tous les capteurs de la table capteur qui appartiennent au bâtiment du gestionnaire*/
+					/* SQL request to get the list of all the sensors located in the manager's building */
 					$requete = "SELECT Capteur.Nom_capt, Capteur.Nom_salle, Salle.ID_bat, Batiment.login_gest FROM Capteur INNER JOIN Salle ON Salle.Nom_salle = Capteur.Nom_salle INNER JOIN Batiment ON Batiment.ID_bat = Salle.ID_bat WHERE Batiment.login_gest = '$username' ;";
 					$resultat = mysqli_query($id_bd, $requete)
-						or die ("Execution de la requête impossible : $requete");
+						or ("Location:erreur_execution.php");
 					mysqli_close($id_bd);
 
+					// Gets each sensor from the SQL request's result and creates a dropdown list option for each of them
 					$i = true ;
 					while($ligne=mysqli_fetch_array($resultat))
 						{
@@ -61,6 +66,7 @@
 					echo '</p>';
 				?>
 
+				<!-- Buttons to let the Building Manager choose the duration for which he wishes to review the data from the sensor -->
 				<p>
 					Durée  :
 					<input type="radio" name="duree" value="1" id="1_jour" checked/><label for="1_jour">1 jour</label>
@@ -74,6 +80,7 @@
 			</p>
 		</form>
 
+		<!-- Link to get to the page which shows all of the data for the whole building in one big table -->
 		<p>
 			Ou bien peut-être préfèreriez-vous visualiser l'ensemble de votre bâtiment ? Si c'est le cas, <a href="./gestion_bat_entier.php">veuillez cliquer ici !</a>
 		</p>
@@ -83,6 +90,7 @@
 		<footer>
 			<nav>
 				<ul>
+					<li><a href="index.php"> Retour à la page d'accueil </a></li>
 					<li><a href="admin_formulaire.html"> Espace Administration </a> (accès restreint) </li>
 					<li><a href="gestion_authentification.html"> Espace Gestionnaire</a> (accès restreint) </li>
 					<li><a href="consultation.php"> Consultation des dernières valeurs </a></li>
