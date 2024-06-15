@@ -57,6 +57,9 @@
     	
    		?>
 
+		<p> Vous pouvez acceder au dashboard node-red en clicquant <a href="http://localhost:1880/ui/#!/0?socketid=B13ipgP7KA3L2twRAAAB"> ici </a> </p>
+		<p> Vous pouvez aussi acceder au grafan en clicquant <a href="http://localhost:3000"> ici </a>
+
     	<hr />
 
 		<footer>
