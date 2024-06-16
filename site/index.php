@@ -53,16 +53,17 @@
     			</tr>
     
     			<?php
-    
+    				/*Database access*/
     				include ("mysql.php");
     
+    				/* Selection of the colums associated with our display requirements */
     				$requete = "SELECT `ID_bat`, `nom` FROM `Batiment` ORDER BY `ID_bat`";
 					$resultat = mysqli_query($id_bd, $requete)
 						or die("Ex&eacute;cution de la requete impossible");
 	
 					mysqli_close($id_bd);
     
-    				/*Affichage de la liste des bâtiments*/
+    				/*Displaying the list of buildings in a table*/
     
 					while($ligne=mysqli_fetch_array($resultat))
 						{
@@ -103,7 +104,7 @@
 	
 					mysqli_close($id_bd);
     
-    				/*Affichage de la liste des salles*/
+    				/*Displaying the list of rooms in a table*/
 
 					while($ligne=mysqli_fetch_array($resultat))
 						{

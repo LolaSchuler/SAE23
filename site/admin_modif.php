@@ -30,7 +30,7 @@
 	<section> 
 		<br />
 		<form action="admin_exec_modif.php" method="post" enctype="multipart/form-data">
-			<fieldset>
+			<fieldset> <!-- Delete line section -->
 				<legend> Supprimer un(e) <?php echo $type ?> </legend>
 				<label for="type"><strong> Souhaitez-vous effectuer cette action ? </strong></label>
 				<input type="hidden" name="table" value="<?php echo $type ?>" id ="type" />
@@ -44,15 +44,14 @@
 				<select id="ligne" name="ligne">
 
 				<?php
-						/* Accès à la base */
 						include ("mysql.php");
 
-						/* Sélection de la table choisie précédemment à l'aide de l'argument type */
 						$requete = "SELECT * FROM `$type`";
 						$resultat = mysqli_query($id_bd, $requete)
 							or ("Location:erreur_execution.php");
 						mysqli_close($id_bd);
 
+						/* Gets each line from the SQL request's result and creates a dropdown list option for each of them*/
 						while($ligne=mysqli_fetch_array($resultat))
 						 {
 							extract($ligne);
@@ -65,7 +64,7 @@
 				
 			</fieldset>
 				
-			<fieldset>
+			<fieldset> <!-- Add line section -->
 				<legend> Ajouter un(e) <?php echo $type ?> </legend>
 					<label for="ajout"> <strong> Souhaitez-vous effectuer cette action ? </strong> </label>
 					<input type="hidden" name="ajout" id ="ajout" />
@@ -75,17 +74,27 @@
 					<label for="ajouter"> Non </label>
 					
 					<?php
-						/* Accès à la base */
 						include ("mysql.php");
 
-						/* Sélection de la table choisie précédemment à l'aide de l'argument type */
 						$requete2 = "DESCRIBE `$type`";
 						$resultat2 = mysqli_query($id_bd, $requete2)
 							or die("Location:erreur_execution.php");
+							
+						$requete3 = "SELECT * FROM `$type`";
+						$resultat3 = mysqli_query($id_bd, $requete3)
+							or die("Location:erreur_execution.php");
+							
 						mysqli_close($id_bd);
 						
+						/* Gets each line from the SQL request's result and creates a form box for each of them*/
 						$j=0;
-							
+						
+						$exemple=mysqli_fetch_array($resultat3);
+							$exemple1=$exemple[0];
+							$exemple2=$exemple[1];
+							$exemple3=$exemple[2];
+							$exemple4=$exemple[3];
+						
 						while ($ligne2=mysqli_fetch_array($resultat2))
 						{
 							extract($ligne2);
@@ -95,11 +104,41 @@
 							}
 							$j=$j+1;
 							$valeur="valeur".$j;
+							$ex="exemple".$j;
 							echo "<br />";
-							echo "<p>
-									<label for \"$valeur\"> Quel(le) $ligne2[0] : </label>
-									<input type=\"text\" name=\"$valeur\" id=\"$valeur\" />
-								</p>";
+							switch($ex)
+							{
+							case "exemple1" :
+								echo "<p>
+										<label for \"$valeur\"> Quel(le) $ligne2[0] : </label>
+										<input type=\"text\" name=\"$valeur\" id=\"$valeur\" placeholder=\"ex : $exemple1\" />
+									</p>";
+								break;
+							case "exemple2" :
+								echo "<p>
+										<label for \"$valeur\"> Quel(le) $ligne2[0] : </label>
+										<input type=\"text\" name=\"$valeur\" id=\"$valeur\" placeholder=\"ex : $exemple2\" />
+									</p>";
+								break;
+							case "exemple3" :
+								echo "<p>
+										<label for \"$valeur\"> Quel(le) $ligne2[0] : </label>
+										<input type=\"text\" name=\"$valeur\" id=\"$valeur\" placeholder=\"ex : $exemple3\" />
+									</p>";
+								break;
+							case "exemple4" :
+								echo "<p>
+										<label for \"$valeur\"> Quel(le) $ligne2[0] : </label>
+										<input type=\"text\" name=\"$valeur\" id=\"$valeur\" placeholder=\"ex : $exemple4\" />
+									</p>";
+								break;
+							default :
+								echo "<p>
+										<label for \"$valeur\"> Quel(le) $ligne2[0] : </label>
+										<input type=\"text\" name=\"$valeur\" id=\"$valeur\" />
+									</p>";
+								break;
+							}
 						}
 
 					?>
@@ -119,7 +158,7 @@
 	<nav>
 		<ul>
 			<li><a href="index.php">Retour à la page d'accueil</a></li>
-			<li><a href="admin_choix_table.php">Retour au choix de la table</a></li>
+			<li><a href="admin_choix_table.php">Retour au choix de l'élément à modifier</a></li>
 		</ul>
 	</nav>
 </footer>

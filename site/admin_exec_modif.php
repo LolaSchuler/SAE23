@@ -4,7 +4,7 @@
 	if ($_SESSION["auth"]!=TRUE)
 		header("Location:erreur_login.php");
 
-	// Récupération des valeurs
+	// Variable retrieval
 
 	$_SESSION['table']=$_POST['table'];
 	$table=$_SESSION['table'];
@@ -21,11 +21,11 @@
 	$titre=$_SESSION['titre'];
 	
 
-	// Script d'exécution de la requête de modification de table
+	// Table modification request execution scripts
 
-		/* Accès à la base */
 		include ("mysql.php");
 		
+		/* Test to know which option has been previously chosen and act accordingly*/
 		if ($ajout==1)
 		 {
 			switch ($table)
